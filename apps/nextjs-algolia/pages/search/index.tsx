@@ -1,7 +1,12 @@
 import type { NextPage } from 'next';
 import getConfig from 'next/config';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch, SearchBox, Hits } from 'react-instantsearch-hooks-web';
+import {
+  InstantSearch,
+  SearchBox,
+  Hits,
+  Highlight,
+} from 'react-instantsearch-hooks-web';
 
 const { publicRuntimeConfig } = getConfig();
 const searchClient = algoliasearch(
@@ -12,7 +17,9 @@ const searchClient = algoliasearch(
 const Hit = ({ hit }) => {
   return (
     <article>
-      <h1>{hit.name}</h1>
+      <h1>
+        <Highlight attribute="name" hit={hit} />
+      </h1>
       <p>住所: {hit.location}</p>
       <p>収容人数: {hit.capacity}人</p>
       <p>温泉: {hit.hotSpring.availability}</p>
