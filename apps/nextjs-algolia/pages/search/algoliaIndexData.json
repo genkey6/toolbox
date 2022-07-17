@@ -1,0 +1,35 @@
+[
+  {
+    "id": "1",
+    "name": "箱根温泉ホテル",
+    "location": "神奈川県足柄下郡箱根町強羅",
+    "capacity": 300,
+    "hotSpring": {
+      "availability": "あり",
+      "effect": ["疲労回復", "肩こり", "腰痛"],
+      "temperature": 40
+    }
+  },
+  {
+    "id": "2",
+    "name": "箱根旅館",
+    "location": "神奈川県足柄下郡箱根町元箱根桃源台",
+    "capacity": 50,
+    "hotSpring": {
+      "availability": "あり",
+      "effect": ["肩こり", "皮膚病", "高血圧"],
+      "temperature": 42
+    }
+  },
+  {
+    "id": "3",
+    "name": "沖縄リゾートホテル",
+    "location": "沖縄県石垣市真栄里",
+    "capacity": 1000,
+    "hotSpring": {
+      "availability": "なし",
+      "effect": [],
+      "temperature": null
+    }
+  }
+]

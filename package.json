@@ -2,17 +2,23 @@
   "name": "nx-sandbox",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "nx run-many --target=serve --all --parallel",
+    "lint": "nx workspace-lint && nx run-many --target=lint --all",
+    "format": "nx format:write"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "11.9.3",
     "@emotion/server": "11.4.0",
     "@emotion/styled": "11.9.3",
     "@nrwl/next": "14.4.3",
+    "algoliasearch": "^4.13.1",
     "core-js": "^3.6.5",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-instantsearch-hooks-web": "^6.30.1",
     "regenerator-runtime": "0.13.7",
     "tslib": "^2.3.0"
   },
