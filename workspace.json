@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-  "projects": {}
+  "projects": {
+    "nextjs-algolia": "apps/nextjs-algolia",
+    "nextjs-algolia-e2e": "apps/nextjs-algolia-e2e"
+  }
 }

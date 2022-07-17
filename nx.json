@@ -4,6 +4,9 @@
   "affected": {
     "defaultBase": "main"
   },
+  "cli": {
+    "defaultCollection": "@nrwl/next"
+  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -25,7 +28,21 @@
     }
   },
   "workspaceLayout": {
-    "appsDir": "packages",
-    "libsDir": "packages"
-  }
+    "appsDir": "apps",
+    "libsDir": "libs"
+  },
+  "generators": {
+    "@nrwl/react": {
+      "application": {
+        "babel": true
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "style": "@emotion/styled",
+        "linter": "eslint"
+      }
+    }
+  },
+  "defaultProject": "nextjs-algolia"
 }
