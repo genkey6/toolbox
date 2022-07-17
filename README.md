@@ -1,2 +1,2 @@
 # nx-sandbox
-sandbox using nx
+sandbox using nx (https://nx.dev/)
