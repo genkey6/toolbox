@@ -1,0 +1,62 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nextjs-algolia",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/nextjs-algolia",
+        "outputPath": "dist/apps/nextjs-algolia"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "tmp/apps/nextjs-algolia"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nextjs-algolia:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nextjs-algolia:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "nextjs-algolia:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "nextjs-algolia:build:production"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/nextjs-algolia"],
+      "options": {
+        "jestConfig": "apps/nextjs-algolia/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nextjs-algolia/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
