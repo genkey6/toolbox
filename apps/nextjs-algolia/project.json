@@ -42,14 +42,6 @@
         "buildTarget": "nextjs-algolia:build:production"
       }
     },
-    "test": {
-      "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/nextjs-algolia"],
-      "options": {
-        "jestConfig": "apps/nextjs-algolia/jest.config.ts",
-        "passWithNoTests": true
-      }
-    },
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
