@@ -1,4 +1,4 @@
-# NxSandbox
+# toolbox
 
 This project was generated using [Nx](https://nx.dev).
 
