@@ -1,0 +1,57 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Zoo {
+  id         String   @id @default(uuid()) @db.Uuid
+  name       String
+  animals    Animal[] @relation("AnimalInZoo")
+  created_at DateTime @default(now()) @db.Timestamptz
+  updated_at DateTime @updatedAt @db.Timestamptz
+}
+
+model Animal {
+  id         String   @id @default(uuid()) @db.Uuid
+  name       String
+  family     Family   @relation(fields: [family_id], references: [id])
+  family_id  String   @db.Uuid
+  zoos       Zoo[]    @relation("AnimalInZoo")
+  created_at DateTime @default(now()) @db.Timestamptz
+  updated_at DateTime @updatedAt @db.Timestamptz
+}
+
+model Classis {
+  id         String   @id @default(uuid()) @db.Uuid
+  name       String
+  orders     Order[]
+  created_at DateTime @default(now()) @db.Timestamptz
+  updated_at DateTime @updatedAt @db.Timestamptz
+}
+
+model Order {
+  id         String   @id @default(uuid()) @db.Uuid
+  name       String
+  families   Family[]
+  classis    Classis  @relation(fields: [classis_id], references: [id])
+  classis_id String   @db.Uuid
+  created_at DateTime @default(now()) @db.Timestamptz
+  updated_at DateTime @updatedAt @db.Timestamptz
+}
+
+model Family {
+  id         String   @id @default(uuid()) @db.Uuid
+  name       String
+  animals    Animal[]
+  order      Order    @relation(fields: [order_id], references: [id])
+  order_id   String   @db.Uuid
+  created_at DateTime @default(now()) @db.Timestamptz
+  updated_at DateTime @updatedAt @db.Timestamptz
+}
