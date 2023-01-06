@@ -1,0 +1,10 @@
+fragment AnimalsPage_animal on AnimalDto {
+  id
+  name
+}
+
+query AnimalsPage {
+  animals {
+    ...AnimalsPage_animal
+  }
+}

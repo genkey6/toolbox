@@ -1,0 +1,31 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type ClassisDto {
+  id: ID!
+  name: String!
+}
+
+type OrderDto {
+  id: ID!
+  name: String!
+  classis: ClassisDto!
+}
+
+type FamilyDto {
+  id: ID!
+  name: String!
+  order: OrderDto!
+}
+
+type AnimalDto {
+  id: ID!
+  name: String!
+  family: FamilyDto!
+}
+
+type Query {
+  animals: [AnimalDto!]!
+  animal(animalId: ID!): AnimalDto!
+}
