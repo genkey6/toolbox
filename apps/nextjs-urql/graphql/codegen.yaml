@@ -1,0 +1,9 @@
+schema: apps/nextjs-urql/graphql/schema.graphqls
+documents: apps/nextjs-urql/src/**/*.graphql
+generates:
+  apps/nextjs-urql/graphql/generated.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-urql'
+      - 'urql-introspection'

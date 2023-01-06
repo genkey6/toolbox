@@ -11,7 +11,7 @@ import { AnimalModule } from './animal/animal.module';
       autoSchemaFile:
         process.env.NODE_ENV === 'production'
           ? true
-          : 'apps/nextjs-urql/graphql/schema.graphql',
+          : 'apps/nextjs-urql/graphql/schema.graphqls',
       playground: process.env.NODE_ENV !== 'production',
     }),
     AnimalModule,
