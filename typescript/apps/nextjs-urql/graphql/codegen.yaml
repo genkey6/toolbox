@@ -1,5 +1,5 @@
 schema: apps/nextjs-urql/graphql/schema.graphqls
-documents: apps/nextjs-urql/src/**/*.graphql
+documents: apps/nextjs-urql/**/*.graphql
 generates:
   apps/nextjs-urql/graphql/generated.ts:
     plugins:
