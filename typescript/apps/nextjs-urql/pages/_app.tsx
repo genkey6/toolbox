@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import { UrqlProvider } from '../../graphql/UrqlProvider';
+import { UrqlProvider } from '../graphql/UrqlProvider';
 import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {

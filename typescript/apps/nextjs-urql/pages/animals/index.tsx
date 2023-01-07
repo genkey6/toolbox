@@ -7,7 +7,7 @@ import {
 } from '@mui/material';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { useAnimalsPageQuery } from '../../../graphql/generated';
+import { useAnimalsPageQuery } from '../../graphql/generated';
 
 function Animals() {
   const [{ data, fetching }] = useAnimalsPageQuery();
