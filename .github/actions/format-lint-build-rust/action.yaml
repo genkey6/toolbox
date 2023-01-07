@@ -23,9 +23,12 @@ runs:
     - name: Format
       working-directory: rust/${{ inputs.project-name }}
       run: cargo fmt --all
+      shell: bash
     - name: Lint
       working-directory: rust/${{ inputs.project-name }}
       run: cargo clippy --all-targets
+      shell: bash
     - name: Build
       working-directory: rust/${{ inputs.project-name }}
       run: cargo build --release
+      shell: bash
