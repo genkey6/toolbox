@@ -1,4 +1,4 @@
-name: Format, Lint and Build all rust projects
+name: Format, Lint and Build Rust projects
 on:
   pull_request:
     paths:
