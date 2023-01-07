@@ -1,5 +1,5 @@
 [package]
-name = "async-graphql-actix-web-demo"
+name = "async-graphql-actix-web"
 version = "0.1.0"
 edition = "2021"
 
