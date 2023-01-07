@@ -7,6 +7,7 @@ This project was generated using [Nx](https://nx.dev).
 🔎 **Smart, Fast and Extensible Build System**
 
 # projects
+## TypeScript
 - nestjs-graphql-prisma
   - NestJS - backend framework (https://docs.nestjs.com/graphql/quick-start)
   - Prisma - ORM (https://www.prisma.io/)
