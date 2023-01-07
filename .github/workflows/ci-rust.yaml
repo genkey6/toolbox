@@ -9,6 +9,8 @@ concurrency:
 jobs:
   ci-async-graphql-actix-web:
     runs-on: ubuntu-latest
-    uses: ./.github/actions/format-lint-build-rust
-    with:
-      project-name: async-graphql-actix-web
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/format-lint-build-rust
+        with:
+          project-name: async-graphql-actix-web
