@@ -1,0 +1,34 @@
+name: Format, Lint and Build rust
+description: run cargo fmt, clippy, build
+inputs:
+  project-name:
+    required: true
+    type: string
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@v3
+    - name: Cache rust
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.cargo/bin
+          ~/.cargo/registry
+          ~/.cargo/git
+          rust/${{ inputs.project-name }}/target
+        key: ${{ runner.os }}-cargo-${{ inputs.project-name }}-${{ hashFiles('rust/**/Cargo.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-cargo-${{ inputs.project-name }}-
+    - name: Format
+      working-directory: rust/${{ inputs.project-name }}
+      run: cargo fmt --all
+      shell: bash
+    - name: Lint
+      working-directory: rust/${{ inputs.project-name }}
+      run: cargo clippy --all-targets
+      shell: bash
+    - name: Build
+      working-directory: rust/${{ inputs.project-name }}
+      run: cargo build
+      shell: bash
