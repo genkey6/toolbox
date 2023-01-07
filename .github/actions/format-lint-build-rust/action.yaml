@@ -30,5 +30,5 @@ runs:
       shell: bash
     - name: Build
       working-directory: rust/${{ inputs.project-name }}
-      run: cargo build --release
+      run: cargo build
       shell: bash
