@@ -1,6 +1,8 @@
 name: Format, Lint and Build all rust projects
 on:
   pull_request:
+    paths:
+      - rust/*
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}-rust
