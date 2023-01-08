@@ -22,6 +22,7 @@ jobs:
         with:
           python-version: "3.10"
           cache: "poetry"
+          cache-dependency-path: python/poetry.lock
       - name: Install dependencies
         run: poetry install
       - name: Run format check
