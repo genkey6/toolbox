@@ -1,0 +1,12 @@
+**/.venv
+**/.tox
+**/__pycache__
+**/.mypy_cache
+**/.pytest_cache
+**/*.pkl
+**/dist
+**/node_modules
+**/target
+.dockerignore
+.env
+.env.*
