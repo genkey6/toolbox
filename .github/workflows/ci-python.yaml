@@ -1,0 +1,32 @@
+name: Format, Lint and TypeCheck Python projects
+on:
+  pull_request:
+    paths:
+      - python/**
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}-python
+  cancel-in-progress: true
+
+jobs:
+  format-lint-typecheck:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: python
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install poetry
+        run: pipx install poetry
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          cache: "poetry"
+      - name: Install dependencies
+        run: poetry install
+      - name: Run format check
+        run: poetry run invoke format --check
+      - name: Run lint
+        run: poetry run invoke lint
+      - name: Run type check
+        run: poetry run mypy .
