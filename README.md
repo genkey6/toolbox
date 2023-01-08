@@ -18,6 +18,11 @@ The project was generated and managed using [Nx](https://nx.dev).
   - Algolia - full-text search engine (https://www.algolia.com/)
 
 ### Rust
- - async-graphql-actix-web
-   - Actix Web - web server framework (https://actix.rs/)
-   - Async-graphql - GraphQL server library (https://async-graphql.github.io/async-graphql/en/index.html)
+- async-graphql-actix-web
+  - Actix Web - web server framework (https://actix.rs/)
+  - Async-graphql - GraphQL server library (https://async-graphql.github.io/async-graphql/en/index.html)
+
+### Python
+- starlette_strawberry_graphql
+  - starlette - web server framework (https://www.starlette.io/)
+  - strawberry - GraphQL server library (https://strawberry.rocks/docs)
