@@ -579,18 +579,6 @@ files = [
 ]
 
 [[package]]
-name = "types-invoke"
-version = "1.7.3.17"
-description = "Typing stubs for invoke"
-category = "dev"
-optional = false
-python-versions = "*"
-files = [
-    {file = "types-invoke-1.7.3.17.tar.gz", hash = "sha256:66594299c767e985c99708220797558b06967ed8130b99dc138dad0d502ccc24"},
-    {file = "types_invoke-1.7.3.17-py3-none-any.whl", hash = "sha256:6696c4e1c3d624711fc70e9f251d1900ceaf5ed484c0505a6f1372cdc45249b8"},
-]
-
-[[package]]
 name = "typing-extensions"
 version = "4.4.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
@@ -624,4 +612,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "d3e2e6cf27ed2a8809825ace420ecf7c7adbd5da5a5d8ac53aefa8bc67bc39c9"
+content-hash = "06748214dc172e05d5814c075088a7d40270ae02e362f57c675d327613f22061"

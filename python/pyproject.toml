@@ -22,7 +22,6 @@ isort = "^5.10.1"
 mypy = "^0.991"
 pytest = "^7.1.2"
 pyproject-flake8 = "^6.0.0.post1"
-types-invoke = "^1.7.3.17"
 
 [build-system]
 requires = ["poetry-core"]
