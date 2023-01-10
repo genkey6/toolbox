@@ -4,6 +4,8 @@
   "license": "MIT",
   "scripts": {
     "start": "nx run-many --target=serve --all --parallel",
+    "start:apollo-supergraph-gateway": "nx run apollo-supergraph-gateway:serve",
+    "start:nestjs-apollo-subgraph": "nx run nestjs-apollo-subgraph:serve",
     "start:nestjs-graphql-prisma": "nx run nestjs-graphql-prisma:serve",
     "start:nextjs-urql": "nx run nextjs-urql:serve",
     "start:nextjs-algolia": "nx run nextjs-algolia:serve",
@@ -16,6 +18,10 @@
   },
   "private": true,
   "dependencies": {
+    "@apollo/federation": "^0.38.1",
+    "@apollo/gateway": "^2.2.2",
+    "@apollo/server": "^4.3.0",
+    "@apollo/subgraph": "^2.2.2",
     "@emotion/react": "11.10.5",
     "@emotion/server": "11.10.0",
     "@emotion/styled": "11.10.5",
