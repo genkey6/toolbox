@@ -33,7 +33,7 @@ type Mutation {
 }
 
 type Query {
-  zee: [Zoo!]!
+  zoos: [Zoo!]!
 }
 
 type Zoo {
