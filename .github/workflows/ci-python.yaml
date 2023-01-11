@@ -27,5 +27,7 @@ jobs:
         run: poetry run invoke format --check
       - name: Run lint
         run: poetry run invoke lint
-      - name: Run type check
-        run: poetry run mypy .
+      - name: Run type check for starlette_strawberry_graphql
+        run: poetry run mypy starlette_strawberry_graphql
+      - name: Run type check for starlette_strawberry_subgraph
+        run: poetry run mypy starlette_strawberry_subgraph
