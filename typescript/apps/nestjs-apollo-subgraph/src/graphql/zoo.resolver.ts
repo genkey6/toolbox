@@ -14,7 +14,7 @@ import { Review, reviews } from './review.resolver';
 @Directive('@key(fields: "id")')
 export class Zoo {
   @Field(() => ID)
-  readonly id: number;
+  readonly id: string;
 
   @Field(() => [Review], { nullable: 'items' })
   readonly reviews: Review[];

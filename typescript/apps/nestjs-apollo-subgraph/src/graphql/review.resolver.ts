@@ -16,13 +16,13 @@ import { Zoo } from './zoo.resolver';
 @Directive('@key(fields: "id")')
 export class Review {
   @Field(() => ID)
-  readonly id: number;
+  readonly id: string;
 
   @Field(() => Int)
   readonly score: number;
 
   @Field(() => Int)
-  readonly zooId: number;
+  readonly zooId: string;
 
   @Field(() => Zoo)
   readonly zoo?: Zoo;
@@ -34,19 +34,19 @@ export class Review {
 
 export const reviews = [
   new Review({
-    id: 1,
+    id: '1',
     score: 5,
-    zooId: 1,
+    zooId: '1',
   }),
   new Review({
-    id: 1,
+    id: '2',
     score: 3,
-    zooId: 1,
+    zooId: '1',
   }),
   new Review({
-    id: 2,
+    id: '3',
     score: 4,
-    zooId: 1,
+    zooId: '2',
   }),
 ];
 
