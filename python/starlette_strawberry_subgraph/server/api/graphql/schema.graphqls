@@ -1,16 +1,16 @@
-schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key"]) {
+schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key", "@shareable"]) {
   query: Query
   mutation: Mutation
 }
 
-type Animal {
+type Animal @key(fields: "id") @shareable {
+  id: ID!
   name: String!
-  classis: Classis!
 }
 
 input AnimalInput {
+  id: String!
   name: String!
-  classis: ClassisInput!
 }
 
 enum Area {
@@ -23,14 +23,6 @@ enum Area {
   CHUGOKU
   SHIKOKU
   KYUSYU
-}
-
-type Classis {
-  name: String!
-}
-
-input ClassisInput {
-  name: String!
 }
 
 type Mutation {
@@ -58,7 +50,7 @@ input ZooInput {
 
 scalar _Any
 
-union _Entity = Zoo
+union _Entity = Zoo | Animal
 
 type _Service {
   sdl: String!

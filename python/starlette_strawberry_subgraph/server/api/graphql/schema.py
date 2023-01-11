@@ -3,17 +3,6 @@ from enum import Enum
 import strawberry
 
 
-@strawberry.type
-class Classis:
-    name: str
-
-
-@strawberry.type
-class Animal:
-    name: str
-    classis: Classis
-
-
 @strawberry.enum
 class Area(Enum):
     TOHOKU = "Tohoku"
@@ -25,6 +14,27 @@ class Area(Enum):
     CHUGOKU = "Chugoku"
     SHIKOKU = "Shikoku"
     KYUSYU = "Kyushu"
+
+
+@strawberry.federation.type(keys=["id"], shareable=True)
+class Animal:
+    id: strawberry.ID
+    name: str
+
+    @classmethod
+    def resolve_reference(cls, id: strawberry.ID) -> "Animal":
+        return find_animal_by_id(id)
+
+
+animals = [
+    Animal(id=strawberry.ID("1"), name="パンダ"),
+    Animal(id=strawberry.ID("2"), name="ホッキョクグマ"),
+    Animal(id=strawberry.ID("3"), name="ペンギン"),
+]
+
+
+def find_animal_by_id(id: strawberry.ID) -> Animal:
+    return list(filter(lambda animal: animal.id == id, animals))[0]
 
 
 @strawberry.federation.type(keys=["id"])
@@ -39,25 +49,24 @@ class Zoo:
         return find_zoo_by_id(id)
 
 
-# use inmemory list instead of a database
 zoos = [
     Zoo(
         id=strawberry.ID("1"),
         name="上野動物園",
         area=Area.KANTO,
-        animals=[Animal(name="パンダ", classis=Classis(name="哺乳綱"))],
+        animals=[Animal(id=strawberry.ID("1"), name="パンダ")],
     ),
     Zoo(
         id=strawberry.ID("2"),
         name="旭山動物園",
         area=Area.TOHOKU,
-        animals=[Animal(name="ホッキョクグマ", classis=Classis(name="哺乳綱"))],
+        animals=[Animal(id=strawberry.ID("2"), name="ホッキョクグマ")],
     ),
     Zoo(
         id=strawberry.ID("3"),
         name="アドベンチャーワールド",
         area=Area.KINKI,
-        animals=[Animal(name="パンダ", classis=Classis(name="哺乳綱"))],
+        animals=[Animal(id=strawberry.ID("3"), name="パンダ")],
     ),
 ]
 
@@ -67,14 +76,9 @@ def find_zoo_by_id(id: strawberry.ID) -> Zoo:
 
 
 @strawberry.input
-class ClassisInput:
-    name: str
-
-
-@strawberry.input
 class AnimalInput:
+    id: str
     name: str
-    classis: ClassisInput
 
 
 @strawberry.input
@@ -100,7 +104,7 @@ class Mutation:
                 id=strawberry.ID(str(len(zoos) + 1)),
                 name=zoo.name,
                 area=zoo.area,
-                animals=[Animal(name=animal.name, classis=Classis(name=animal.classis.name)) for animal in zoo.animals],
+                animals=[Animal(id=strawberry.ID(animal.id), name=animal.name) for animal in zoo.animals],
             )
         )
         return zoos
