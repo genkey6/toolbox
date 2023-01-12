@@ -1,0 +1,57 @@
+schema @link(url: "https://specs.apollo.dev/federation/v2.0", import: ["@key", "@shareable"]) {
+  query: Query
+  mutation: Mutation
+}
+
+type Animal @key(fields: "id") @shareable {
+  id: ID!
+  name: String!
+}
+
+input AnimalInput {
+  id: String!
+  name: String!
+}
+
+enum Area {
+  TOHOKU
+  KANTO
+  KOSHINETSU
+  HOKURIKU
+  TOKAI
+  KINKI
+  CHUGOKU
+  SHIKOKU
+  KYUSYU
+}
+
+type Mutation {
+  registerZoo(zoo: ZooInput!): [Zoo!]!
+}
+
+type Query {
+  _entities(representations: [_Any!]!): [_Entity]!
+  _service: _Service!
+  zoos: [Zoo!]!
+}
+
+type Zoo @key(fields: "id") {
+  id: ID!
+  name: String!
+  area: Area!
+  animals: [Animal!]!
+}
+
+input ZooInput {
+  name: String!
+  area: Area!
+  animals: [AnimalInput!]! = []
+}
+
+scalar _Any
+
+union _Entity = Zoo | Animal
+
+type _Service {
+  sdl: String!
+}
