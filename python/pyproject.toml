@@ -11,7 +11,7 @@ starlette = "^0.23.0"
 gunicorn = "^20.1.0"
 uvicorn = "^0.20.0"
 python-multipart = "^0.0.5"
-strawberry-graphql = {extras = ["asgi"], version = "^0.151.0"}
+strawberry-graphql = {extras = ["asgi"], version = "^0.152.0"}
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = "^2.0.0"
