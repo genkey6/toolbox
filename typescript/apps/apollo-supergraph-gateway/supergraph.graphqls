@@ -1,0 +1,124 @@
+schema
+  @link(url: "https://specs.apollo.dev/link/v1.0")
+  @link(url: "https://specs.apollo.dev/join/v0.2", for: EXECUTION) {
+  query: Query
+  mutation: Mutation
+}
+
+directive @join__field(
+  graph: join__Graph!
+  requires: join__FieldSet
+  provides: join__FieldSet
+  type: String
+  external: Boolean
+  override: String
+  usedOverridden: Boolean
+) repeatable on FIELD_DEFINITION | INPUT_FIELD_DEFINITION
+
+directive @join__graph(name: String!, url: String!) on ENUM_VALUE
+
+directive @join__implements(
+  graph: join__Graph!
+  interface: String!
+) repeatable on OBJECT | INTERFACE
+
+directive @join__type(
+  graph: join__Graph!
+  key: join__FieldSet
+  extension: Boolean! = false
+  resolvable: Boolean! = true
+) repeatable on OBJECT | INTERFACE | UNION | ENUM | INPUT_OBJECT | SCALAR
+
+directive @link(
+  url: String
+  as: String
+  for: link__Purpose
+  import: [link__Import]
+) repeatable on SCHEMA
+
+type Animal
+  @join__type(graph: ANIMALS, key: "id")
+  @join__type(graph: ZOOS, key: "id") {
+  id: ID!
+  name: String!
+  classis: Classis! @join__field(graph: ANIMALS)
+}
+
+input AnimalInput @join__type(graph: ZOOS) {
+  id: String!
+  name: String!
+}
+
+enum Area @join__type(graph: ZOOS) {
+  TOHOKU
+  KANTO
+  KOSHINETSU
+  HOKURIKU
+  TOKAI
+  KINKI
+  CHUGOKU
+  SHIKOKU
+  KYUSYU
+}
+
+type Classis @join__type(graph: ANIMALS) {
+  name: String!
+}
+
+scalar join__FieldSet
+
+enum join__Graph {
+  ANIMALS @join__graph(name: "animals", url: "http://localhost:4003/graphql")
+  REVIEWS @join__graph(name: "reviews", url: "http://localhost:4001/graphql")
+  ZOOS @join__graph(name: "zoos", url: "http://localhost:4002/graphql")
+}
+
+scalar link__Import
+
+enum link__Purpose {
+  """
+  `SECURITY` features provide metadata necessary to securely resolve fields.
+  """
+  SECURITY
+
+  """
+  `EXECUTION` features provide metadata necessary for operation execution.
+  """
+  EXECUTION
+}
+
+type Mutation @join__type(graph: ZOOS) {
+  registerZoo(zoo: ZooInput!): [Zoo!]!
+}
+
+type Query
+  @join__type(graph: ANIMALS)
+  @join__type(graph: REVIEWS)
+  @join__type(graph: ZOOS) {
+  animals: [Animal!]! @join__field(graph: ANIMALS)
+  reviews: [Review!]! @join__field(graph: REVIEWS)
+  zoos: [Zoo!]! @join__field(graph: ZOOS)
+}
+
+type Review @join__type(graph: REVIEWS, key: "id") {
+  id: ID!
+  score: Int!
+  zooId: Int!
+  zoo: Zoo!
+}
+
+type Zoo
+  @join__type(graph: REVIEWS, key: "id")
+  @join__type(graph: ZOOS, key: "id") {
+  id: ID!
+  reviews: [Review]! @join__field(graph: REVIEWS)
+  name: String! @join__field(graph: ZOOS)
+  area: Area! @join__field(graph: ZOOS)
+  animals: [Animal!]! @join__field(graph: ZOOS)
+}
+
+input ZooInput @join__type(graph: ZOOS) {
+  name: String!
+  area: Area!
+  animals: [AnimalInput!]! = []
+}
