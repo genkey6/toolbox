@@ -14,6 +14,7 @@ import { Zoo, ZooResolver } from './graphql/zoo.resolver';
       driver: ApolloFederationDriver,
       autoSchemaFile: {
         federation: 2,
+        path: 'apps/nestjs-apollo-subgraph/src/graphql/schema.graphqls',
       },
       buildSchemaOptions: {
         orphanedTypes: [Zoo],
