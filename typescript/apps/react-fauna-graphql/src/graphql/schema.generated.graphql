@@ -1,0 +1,318 @@
+directive @embedded on OBJECT
+
+directive @collection(name: String!) on OBJECT
+
+directive @index(name: String!) on FIELD_DEFINITION
+
+directive @resolver(
+  name: String
+  paginated: Boolean! = false
+) on FIELD_DEFINITION
+
+directive @relation(name: String) on FIELD_DEFINITION
+
+directive @unique(index: String) on FIELD_DEFINITION
+
+# 'Animal' input values
+input AnimalInput {
+  name: String!
+  classis: ClassisInput!
+  zoo: AnimalZooRelation
+}
+
+# Allow manipulating the relationship between the types 'Animal' and 'Zoo' using the field 'Animal.zoo'.
+input AnimalZooRelation {
+  # Create a document of type 'Zoo' and associate it with the current document.
+  create: ZooInput
+
+  # Connect a document of type 'Zoo' with the current document using its ID.
+  connect: ID
+
+  # If true, disconnects this document from 'Zoo'
+  disconnect: Boolean
+}
+
+# 'Classis' input values
+input ClassisInput {
+  name: String!
+}
+
+scalar Date
+
+type Mutation {
+  # Delete an existing document in the collection of 'Zoo'
+  deleteZoo(
+    # The 'Zoo' document's ID
+    id: ID!
+  ): Zoo
+
+  # Update an existing document in the collection of 'Review'
+  updateReview(
+    # The 'Review' document's ID
+    id: ID!
+
+    # 'Review' input values
+    data: ReviewInput!
+  ): Review
+
+  # Update an existing document in the collection of 'Animal'
+  updateAnimal(
+    # The 'Animal' document's ID
+    id: ID!
+
+    # 'Animal' input values
+    data: AnimalInput!
+  ): Animal
+
+  # Create a new document in the collection of 'Zoo'
+  createZoo(
+    # 'Zoo' input values
+    data: ZooInput!
+  ): Zoo!
+
+  # Partially updates an existing document in the collection of 'Animal'. It only modifies the values that are specified in the arguments. During execution, it verifies that required fields are not set to 'null'.
+  partialUpdateAnimal(
+    # The 'Animal' document's ID
+    id: ID!
+
+    # 'Animal' input values
+    data: PartialUpdateAnimalInput!
+  ): Animal
+
+  # Delete an existing document in the collection of 'Review'
+  deleteReview(
+    # The 'Review' document's ID
+    id: ID!
+  ): Review
+
+  # Partially updates an existing document in the collection of 'Zoo'. It only modifies the values that are specified in the arguments. During execution, it verifies that required fields are not set to 'null'.
+  partialUpdateZoo(
+    # The 'Zoo' document's ID
+    id: ID!
+
+    # 'Zoo' input values
+    data: PartialUpdateZooInput!
+  ): Zoo
+
+  # Create a new document in the collection of 'Review'
+  createReview(
+    # 'Review' input values
+    data: ReviewInput!
+  ): Review!
+
+  # Create a new document in the collection of 'Animal'
+  createAnimal(
+    # 'Animal' input values
+    data: AnimalInput!
+  ): Animal!
+
+  # Update an existing document in the collection of 'Zoo'
+  updateZoo(
+    # The 'Zoo' document's ID
+    id: ID!
+
+    # 'Zoo' input values
+    data: ZooInput!
+  ): Zoo
+
+  # Partially updates an existing document in the collection of 'Review'. It only modifies the values that are specified in the arguments. During execution, it verifies that required fields are not set to 'null'.
+  partialUpdateReview(
+    # The 'Review' document's ID
+    id: ID!
+
+    # 'Review' input values
+    data: PartialUpdateReviewInput!
+  ): Review
+
+  # Delete an existing document in the collection of 'Animal'
+  deleteAnimal(
+    # The 'Animal' document's ID
+    id: ID!
+  ): Animal
+}
+
+# 'Animal' input values
+input PartialUpdateAnimalInput {
+  name: String
+  classis: PartialUpdateClassisInput
+  zoo: AnimalZooRelation
+}
+
+# 'Classis' input values
+input PartialUpdateClassisInput {
+  name: String
+}
+
+# 'Review' input values
+input PartialUpdateReviewInput {
+  score: Int
+  isValid: Boolean
+  zoo: ReviewZooRelation
+}
+
+# 'Zoo' input values
+input PartialUpdateZooInput {
+  name: String
+  area: Area
+  animals: ZooAnimalsRelation
+  reviews: [ID]
+}
+
+# 'Review' input values
+input ReviewInput {
+  score: Int!
+  isValid: Boolean
+  zoo: ReviewZooRelation
+}
+
+# Allow manipulating the relationship between the types 'Review' and 'Zoo' using the field 'Review.zoo'.
+input ReviewZooRelation {
+  # Create a document of type 'Zoo' and associate it with the current document.
+  create: ZooInput
+
+  # Connect a document of type 'Zoo' with the current document using its ID.
+  connect: ID
+}
+
+scalar Time
+
+# Allow manipulating the relationship between the types 'Zoo' and 'Animal'.
+input ZooAnimalsRelation {
+  # Create one or more documents of type 'Animal' and associate them with the current document.
+  create: [AnimalInput]
+
+  # Connect one or more documents of type 'Animal' with the current document using their IDs.
+  connect: [ID]
+
+  # Disconnect the given documents of type 'Animal' from the current document using their IDs.
+  disconnect: [ID]
+}
+
+# 'Zoo' input values
+input ZooInput {
+  name: String!
+  area: Area!
+  animals: ZooAnimalsRelation
+  reviews: [ID]!
+}
+
+type Animal {
+  name: String!
+
+  # The document's ID.
+  _id: ID!
+  zoo: Zoo
+  classis: Classis!
+
+  # The document's timestamp.
+  _ts: Long!
+}
+
+# The pagination object for elements of type 'Animal'.
+type AnimalPage {
+  # The elements of type 'Animal' in this page.
+  data: [Animal]!
+
+  # A cursor for elements coming after the current page.
+  after: String
+
+  # A cursor for elements coming before the current page.
+  before: String
+}
+
+enum Area {
+  TOHOKU
+  KANTO
+  KOSHINETSU
+  HOKURIKU
+  TOKAI
+  KINKI
+  CHUGOKU
+  SHIKOKU
+  KYUSYU
+}
+
+type Classis {
+  name: String!
+}
+
+type Query {
+  allZoos(
+    # The number of items to return per page.
+    _size: Int
+
+    # The pagination cursor.
+    _cursor: String
+  ): ZooPage!
+
+  # Find a document from the collection of 'Animal' by its id.
+  findAnimalByID(
+    # The 'Animal' document's ID
+    id: ID!
+  ): Animal
+
+  # Find a document from the collection of 'Review' by its id.
+  findReviewByID(
+    # The 'Review' document's ID
+    id: ID!
+  ): Review
+
+  # Find a document from the collection of 'Zoo' by its id.
+  findZooByID(
+    # The 'Zoo' document's ID
+    id: ID!
+  ): Zoo
+  allAnimals(
+    # The number of items to return per page.
+    _size: Int
+
+    # The pagination cursor.
+    _cursor: String
+  ): AnimalPage!
+}
+
+type Review {
+  isValid: Boolean
+
+  # The document's ID.
+  _id: ID!
+  score: Int!
+  zoo: Zoo!
+
+  # The document's timestamp.
+  _ts: Long!
+}
+
+type Zoo {
+  area: Area!
+  name: String!
+
+  # The document's ID.
+  _id: ID!
+  animals(
+    # The number of items to return per page.
+    _size: Int
+
+    # The pagination cursor.
+    _cursor: String
+  ): AnimalPage!
+  reviews: [Review]!
+
+  # The document's timestamp.
+  _ts: Long!
+}
+
+# The pagination object for elements of type 'Zoo'.
+type ZooPage {
+  # The elements of type 'Zoo' in this page.
+  data: [Zoo]!
+
+  # A cursor for elements coming after the current page.
+  after: String
+
+  # A cursor for elements coming before the current page.
+  before: String
+}
+
+# The `Long` scalar type represents non-fractional signed whole numeric values. Long can represent values between -(2^63) and 2^63 - 1.
+scalar Long

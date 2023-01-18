@@ -6,6 +6,7 @@
     "nestjs-apollo-subgraph": "apps/nestjs-apollo-subgraph",
     "nestjs-graphql-prisma": "apps/nestjs-graphql-prisma",
     "nextjs-algolia": "apps/nextjs-algolia",
-    "nextjs-urql": "apps/nextjs-urql"
+    "nextjs-urql": "apps/nextjs-urql",
+    "react-fauna-graphql": "apps/react-fauna-graphql"
   }
 }
