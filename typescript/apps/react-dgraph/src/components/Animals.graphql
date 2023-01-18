@@ -1,0 +1,19 @@
+query GetAllAnimals {
+  queryAnimal {
+    name
+    classis {
+      name
+    }
+  }
+}
+
+mutation RegisterAnimal($animal: [AddAnimalInput!]!) {
+  addAnimal(input: $animal) {
+    animal {
+      name
+      classis {
+        name
+      }
+    }
+  }
+}

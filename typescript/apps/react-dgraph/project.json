@@ -1,0 +1,67 @@
+{
+  "name": "react-dgraph",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/react-dgraph/src",
+  "projectType": "application",
+  "targets": {
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "graphql-codegen --config apps/react-dgraph/src/graphql/codegen.yaml"
+          }
+        ]
+      }
+    },
+    "build": {
+      "executor": "@nrwl/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/react-dgraph"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "react-dgraph:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "react-dgraph:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "react-dgraph:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "test": {
+      "executor": "@nrwl/vite:test",
+      "outputs": ["coverage/apps/react-dgraph"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../coverage/apps/react-dgraph"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/react-dgraph/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}

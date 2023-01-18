@@ -7,6 +7,7 @@
     "nestjs-graphql-prisma": "apps/nestjs-graphql-prisma",
     "nextjs-algolia": "apps/nextjs-algolia",
     "nextjs-urql": "apps/nextjs-urql",
+    "react-dgraph": "apps/react-dgraph",
     "react-fauna-graphql": "apps/react-fauna-graphql"
   }
 }
