@@ -1,0 +1,23 @@
+query GetAllZoos {
+  zoos {
+    name
+    animals {
+      name
+      classis {
+        name
+      }
+    }
+  }
+}
+
+mutation RegisterZoo($zoo: [ZooCreateInput!]!) {
+  createZoos(input: $zoo) {
+    zoos {
+      name
+      area
+      animals {
+        name
+      }
+    }
+  }
+}

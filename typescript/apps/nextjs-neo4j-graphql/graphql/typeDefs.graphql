@@ -1,0 +1,35 @@
+enum Area {
+  TOHOKU
+  KANTO
+  KOSHINETSU
+  HOKURIKU
+  TOKAI
+  KINKI
+  CHUGOKU
+  SHIKOKU
+  KYUSYU
+}
+
+type Classis {
+  name: String!
+  animals: [Animal!]! @relationship(type: "BELONGS_TO", direction: IN)
+}
+
+type Animal {
+  name: String!
+  classis: Classis! @relationship(type: "BELONGS_TO", direction: OUT)
+  zoos: [Zoo!]! @relationship(type: "BELONGS_TO", direction: OUT)
+}
+
+type Review {
+  score: Int!
+  isValid: Boolean
+  zoo: Zoo! @relationship(type: "REVIEW_TO", direction: OUT)
+}
+
+type Zoo {
+  name: String!
+  area: Area!
+  animals: [Animal!]! @relationship(type: "BELONGS_TO", direction: IN)
+  reviews: [Review!]! @relationship(type: "REVIEW_TO", direction: IN)
+}
