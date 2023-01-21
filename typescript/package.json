@@ -17,7 +17,7 @@
     "generate:nextjs-urql": "nx run nextjs-urql:prepare",
     "generate:react-dgraph": "nx run react-dgraph:prepare",
     "generate:react-fauna-graphql": "nx run react-fauna-graphql:prepare",
-    "build": "yarn generate && nx run-many --target=build --all",
+    "build": "nx run-many --target=build --all",
     "lint": "nx workspace-lint && nx run-many --target=lint --all",
     "format": "nx format:write"
   },
