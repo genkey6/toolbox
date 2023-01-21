@@ -1,0 +1,9 @@
+schema: apps/react-fauna-graphql/src/graphql/schema.generated.graphql
+documents: apps/react-fauna-graphql/src/components/*.graphql
+generates:
+  apps/react-fauna-graphql/src/graphql/generated.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-urql'
+      - 'urql-introspection'

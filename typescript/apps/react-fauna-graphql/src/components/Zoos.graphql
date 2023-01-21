@@ -1,0 +1,29 @@
+query GetAllZoos {
+  allZoos {
+    data {
+      _id
+      name
+      animals {
+        data {
+          _id
+          name
+          classis {
+            name
+          }
+        }
+      }
+    }
+  }
+}
+
+mutation RegisterZoo($zoo: ZooInput!) {
+  createZoo(data: $zoo) {
+    name
+    area
+    animals {
+      data {
+        name
+      }
+    }
+  }
+}

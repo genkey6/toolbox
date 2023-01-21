@@ -1,0 +1,39 @@
+enum Area {
+  TOHOKU
+  KANTO
+  KOSHINETSU
+  HOKURIKU
+  TOKAI
+  KINKI
+  CHUGOKU
+  SHIKOKU
+  KYUSYU
+}
+
+type Classis @embedded {
+  name: String!
+}
+
+type Animal {
+  name: String!
+  classis: Classis!
+  zoo: Zoo
+}
+
+type Review {
+  score: Int!
+  isValid: Boolean
+  zoo: Zoo!
+}
+
+type Zoo {
+  name: String!
+  area: Area!
+  animals: [Animal!]! @relation
+  reviews: [Review]!
+}
+
+type Query {
+  allZoos: [Zoo!]!
+  allAnimals: [Animal!]!
+}

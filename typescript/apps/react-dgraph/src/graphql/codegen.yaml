@@ -1,0 +1,9 @@
+schema: apps/react-dgraph/src/graphql/schema.generated.graphql
+documents: apps/react-dgraph/src/components/*.graphql
+generates:
+  apps/react-dgraph/src/graphql/generated.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-urql'
+      - 'urql-introspection'

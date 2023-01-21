@@ -1,0 +1,1384 @@
+type Query {
+  classes(where: ClassisWhere, options: ClassisOptions): [Classis!]!
+  classesAggregate(where: ClassisWhere): ClassisAggregateSelection!
+  classesConnection(
+    first: Int
+    after: String
+    where: ClassisWhere
+    sort: [ClassisSort]
+  ): ClassesConnection!
+  animals(where: AnimalWhere, options: AnimalOptions): [Animal!]!
+  animalsAggregate(where: AnimalWhere): AnimalAggregateSelection!
+  animalsConnection(
+    first: Int
+    after: String
+    where: AnimalWhere
+    sort: [AnimalSort]
+  ): AnimalsConnection!
+  reviews(where: ReviewWhere, options: ReviewOptions): [Review!]!
+  reviewsAggregate(where: ReviewWhere): ReviewAggregateSelection!
+  reviewsConnection(
+    first: Int
+    after: String
+    where: ReviewWhere
+    sort: [ReviewSort]
+  ): ReviewsConnection!
+  zoos(where: ZooWhere, options: ZooOptions): [Zoo!]!
+  zoosAggregate(where: ZooWhere): ZooAggregateSelection!
+  zoosConnection(
+    first: Int
+    after: String
+    where: ZooWhere
+    sort: [ZooSort]
+  ): ZoosConnection!
+}
+
+type Mutation {
+  createClasses(input: [ClassisCreateInput!]!): CreateClassesMutationResponse!
+  deleteClasses(where: ClassisWhere, delete: ClassisDeleteInput): DeleteInfo!
+  updateClasses(
+    where: ClassisWhere
+    update: ClassisUpdateInput
+    connect: ClassisConnectInput
+    disconnect: ClassisDisconnectInput
+    create: ClassisRelationInput
+    delete: ClassisDeleteInput
+  ): UpdateClassesMutationResponse!
+  createAnimals(input: [AnimalCreateInput!]!): CreateAnimalsMutationResponse!
+  deleteAnimals(where: AnimalWhere, delete: AnimalDeleteInput): DeleteInfo!
+  updateAnimals(
+    where: AnimalWhere
+    update: AnimalUpdateInput
+    connect: AnimalConnectInput
+    disconnect: AnimalDisconnectInput
+    create: AnimalRelationInput
+    delete: AnimalDeleteInput
+  ): UpdateAnimalsMutationResponse!
+  createReviews(input: [ReviewCreateInput!]!): CreateReviewsMutationResponse!
+  deleteReviews(where: ReviewWhere, delete: ReviewDeleteInput): DeleteInfo!
+  updateReviews(
+    where: ReviewWhere
+    update: ReviewUpdateInput
+    connect: ReviewConnectInput
+    disconnect: ReviewDisconnectInput
+    create: ReviewRelationInput
+    delete: ReviewDeleteInput
+  ): UpdateReviewsMutationResponse!
+  createZoos(input: [ZooCreateInput!]!): CreateZoosMutationResponse!
+  deleteZoos(where: ZooWhere, delete: ZooDeleteInput): DeleteInfo!
+  updateZoos(
+    where: ZooWhere
+    update: ZooUpdateInput
+    connect: ZooConnectInput
+    disconnect: ZooDisconnectInput
+    create: ZooRelationInput
+    delete: ZooDeleteInput
+  ): UpdateZoosMutationResponse!
+}
+
+enum Area {
+  TOHOKU
+  KANTO
+  KOSHINETSU
+  HOKURIKU
+  TOKAI
+  KINKI
+  CHUGOKU
+  SHIKOKU
+  KYUSYU
+}
+
+enum SortDirection {
+  """
+  Sort by field values in ascending order.
+  """
+  ASC
+
+  """
+  Sort by field values in descending order.
+  """
+  DESC
+}
+
+type Animal {
+  name: String!
+  classis(
+    where: ClassisWhere
+    options: ClassisOptions
+    directed: Boolean = true
+  ): Classis!
+  classisAggregate(
+    where: ClassisWhere
+    directed: Boolean = true
+  ): AnimalClassisClassisAggregationSelection
+  zoos(where: ZooWhere, options: ZooOptions, directed: Boolean = true): [Zoo!]!
+  zoosAggregate(
+    where: ZooWhere
+    directed: Boolean = true
+  ): AnimalZooZoosAggregationSelection
+  classisConnection(
+    where: AnimalClassisConnectionWhere
+    first: Int
+    after: String
+    directed: Boolean = true
+    sort: [AnimalClassisConnectionSort!]
+  ): AnimalClassisConnection!
+  zoosConnection(
+    where: AnimalZoosConnectionWhere
+    first: Int
+    after: String
+    directed: Boolean = true
+    sort: [AnimalZoosConnectionSort!]
+  ): AnimalZoosConnection!
+}
+
+type AnimalAggregateSelection {
+  count: Int!
+  name: StringAggregateSelectionNonNullable!
+}
+
+type AnimalClassisClassisAggregationSelection {
+  count: Int!
+  node: AnimalClassisClassisNodeAggregateSelection
+}
+
+type AnimalClassisClassisNodeAggregateSelection {
+  name: StringAggregateSelectionNonNullable!
+}
+
+type AnimalClassisConnection {
+  edges: [AnimalClassisRelationship!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+type AnimalClassisRelationship {
+  cursor: String!
+  node: Classis!
+}
+
+type AnimalEdge {
+  cursor: String!
+  node: Animal!
+}
+
+type AnimalsConnection {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  edges: [AnimalEdge!]!
+}
+
+type AnimalZoosConnection {
+  edges: [AnimalZoosRelationship!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+type AnimalZoosRelationship {
+  cursor: String!
+  node: Zoo!
+}
+
+type AnimalZooZoosAggregationSelection {
+  count: Int!
+  node: AnimalZooZoosNodeAggregateSelection
+}
+
+type AnimalZooZoosNodeAggregateSelection {
+  name: StringAggregateSelectionNonNullable!
+}
+
+type ClassesConnection {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  edges: [ClassisEdge!]!
+}
+
+type Classis {
+  name: String!
+  animals(
+    where: AnimalWhere
+    options: AnimalOptions
+    directed: Boolean = true
+  ): [Animal!]!
+  animalsAggregate(
+    where: AnimalWhere
+    directed: Boolean = true
+  ): ClassisAnimalAnimalsAggregationSelection
+  animalsConnection(
+    where: ClassisAnimalsConnectionWhere
+    first: Int
+    after: String
+    directed: Boolean = true
+    sort: [ClassisAnimalsConnectionSort!]
+  ): ClassisAnimalsConnection!
+}
+
+type ClassisAggregateSelection {
+  count: Int!
+  name: StringAggregateSelectionNonNullable!
+}
+
+type ClassisAnimalAnimalsAggregationSelection {
+  count: Int!
+  node: ClassisAnimalAnimalsNodeAggregateSelection
+}
+
+type ClassisAnimalAnimalsNodeAggregateSelection {
+  name: StringAggregateSelectionNonNullable!
+}
+
+type ClassisAnimalsConnection {
+  edges: [ClassisAnimalsRelationship!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+type ClassisAnimalsRelationship {
+  cursor: String!
+  node: Animal!
+}
+
+type ClassisEdge {
+  cursor: String!
+  node: Classis!
+}
+
+type CreateAnimalsMutationResponse {
+  info: CreateInfo!
+  animals: [Animal!]!
+}
+
+type CreateClassesMutationResponse {
+  info: CreateInfo!
+  classes: [Classis!]!
+}
+
+type CreateInfo {
+  bookmark: String
+  nodesCreated: Int!
+  relationshipsCreated: Int!
+}
+
+type CreateReviewsMutationResponse {
+  info: CreateInfo!
+  reviews: [Review!]!
+}
+
+type CreateZoosMutationResponse {
+  info: CreateInfo!
+  zoos: [Zoo!]!
+}
+
+type DeleteInfo {
+  bookmark: String
+  nodesDeleted: Int!
+  relationshipsDeleted: Int!
+}
+
+type IntAggregateSelectionNonNullable {
+  max: Int!
+  min: Int!
+  average: Float!
+  sum: Int!
+}
+
+"""
+Pagination information (Relay)
+"""
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+type Review {
+  score: Int!
+  isValid: Boolean
+  zoo(where: ZooWhere, options: ZooOptions, directed: Boolean = true): Zoo!
+  zooAggregate(
+    where: ZooWhere
+    directed: Boolean = true
+  ): ReviewZooZooAggregationSelection
+  zooConnection(
+    where: ReviewZooConnectionWhere
+    first: Int
+    after: String
+    directed: Boolean = true
+    sort: [ReviewZooConnectionSort!]
+  ): ReviewZooConnection!
+}
+
+type ReviewAggregateSelection {
+  count: Int!
+  score: IntAggregateSelectionNonNullable!
+}
+
+type ReviewEdge {
+  cursor: String!
+  node: Review!
+}
+
+type ReviewsConnection {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  edges: [ReviewEdge!]!
+}
+
+type ReviewZooConnection {
+  edges: [ReviewZooRelationship!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+type ReviewZooRelationship {
+  cursor: String!
+  node: Zoo!
+}
+
+type ReviewZooZooAggregationSelection {
+  count: Int!
+  node: ReviewZooZooNodeAggregateSelection
+}
+
+type ReviewZooZooNodeAggregateSelection {
+  name: StringAggregateSelectionNonNullable!
+}
+
+type StringAggregateSelectionNonNullable {
+  shortest: String!
+  longest: String!
+}
+
+type UpdateAnimalsMutationResponse {
+  info: UpdateInfo!
+  animals: [Animal!]!
+}
+
+type UpdateClassesMutationResponse {
+  info: UpdateInfo!
+  classes: [Classis!]!
+}
+
+type UpdateInfo {
+  bookmark: String
+  nodesCreated: Int!
+  nodesDeleted: Int!
+  relationshipsCreated: Int!
+  relationshipsDeleted: Int!
+}
+
+type UpdateReviewsMutationResponse {
+  info: UpdateInfo!
+  reviews: [Review!]!
+}
+
+type UpdateZoosMutationResponse {
+  info: UpdateInfo!
+  zoos: [Zoo!]!
+}
+
+type Zoo {
+  name: String!
+  area: Area!
+  animals(
+    where: AnimalWhere
+    options: AnimalOptions
+    directed: Boolean = true
+  ): [Animal!]!
+  animalsAggregate(
+    where: AnimalWhere
+    directed: Boolean = true
+  ): ZooAnimalAnimalsAggregationSelection
+  reviews(
+    where: ReviewWhere
+    options: ReviewOptions
+    directed: Boolean = true
+  ): [Review!]!
+  reviewsAggregate(
+    where: ReviewWhere
+    directed: Boolean = true
+  ): ZooReviewReviewsAggregationSelection
+  animalsConnection(
+    where: ZooAnimalsConnectionWhere
+    first: Int
+    after: String
+    directed: Boolean = true
+    sort: [ZooAnimalsConnectionSort!]
+  ): ZooAnimalsConnection!
+  reviewsConnection(
+    where: ZooReviewsConnectionWhere
+    first: Int
+    after: String
+    directed: Boolean = true
+    sort: [ZooReviewsConnectionSort!]
+  ): ZooReviewsConnection!
+}
+
+type ZooAggregateSelection {
+  count: Int!
+  name: StringAggregateSelectionNonNullable!
+}
+
+type ZooAnimalAnimalsAggregationSelection {
+  count: Int!
+  node: ZooAnimalAnimalsNodeAggregateSelection
+}
+
+type ZooAnimalAnimalsNodeAggregateSelection {
+  name: StringAggregateSelectionNonNullable!
+}
+
+type ZooAnimalsConnection {
+  edges: [ZooAnimalsRelationship!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+type ZooAnimalsRelationship {
+  cursor: String!
+  node: Animal!
+}
+
+type ZooEdge {
+  cursor: String!
+  node: Zoo!
+}
+
+type ZooReviewReviewsAggregationSelection {
+  count: Int!
+  node: ZooReviewReviewsNodeAggregateSelection
+}
+
+type ZooReviewReviewsNodeAggregateSelection {
+  score: IntAggregateSelectionNonNullable!
+}
+
+type ZooReviewsConnection {
+  edges: [ZooReviewsRelationship!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
+}
+
+type ZooReviewsRelationship {
+  cursor: String!
+  node: Review!
+}
+
+type ZoosConnection {
+  totalCount: Int!
+  pageInfo: PageInfo!
+  edges: [ZooEdge!]!
+}
+
+input AnimalClassisAggregateInput {
+  count: Int
+  count_LT: Int
+  count_LTE: Int
+  count_GT: Int
+  count_GTE: Int
+  AND: [AnimalClassisAggregateInput!]
+  OR: [AnimalClassisAggregateInput!]
+  node: AnimalClassisNodeAggregationWhereInput
+}
+
+input AnimalClassisConnectFieldInput {
+  where: ClassisConnectWhere
+  connect: ClassisConnectInput
+}
+
+input AnimalClassisConnectionSort {
+  node: ClassisSort
+}
+
+input AnimalClassisConnectionWhere {
+  AND: [AnimalClassisConnectionWhere!]
+  OR: [AnimalClassisConnectionWhere!]
+  node: ClassisWhere
+  node_NOT: ClassisWhere
+}
+
+input AnimalClassisCreateFieldInput {
+  node: ClassisCreateInput!
+}
+
+input AnimalClassisDeleteFieldInput {
+  where: AnimalClassisConnectionWhere
+  delete: ClassisDeleteInput
+}
+
+input AnimalClassisDisconnectFieldInput {
+  where: AnimalClassisConnectionWhere
+  disconnect: ClassisDisconnectInput
+}
+
+input AnimalClassisFieldInput {
+  create: AnimalClassisCreateFieldInput
+  connect: AnimalClassisConnectFieldInput
+}
+
+input AnimalClassisNodeAggregationWhereInput {
+  AND: [AnimalClassisNodeAggregationWhereInput!]
+  OR: [AnimalClassisNodeAggregationWhereInput!]
+  name_EQUAL: String
+  name_AVERAGE_EQUAL: Float
+  name_LONGEST_EQUAL: Int
+  name_SHORTEST_EQUAL: Int
+  name_GT: Int
+  name_AVERAGE_GT: Float
+  name_LONGEST_GT: Int
+  name_SHORTEST_GT: Int
+  name_GTE: Int
+  name_AVERAGE_GTE: Float
+  name_LONGEST_GTE: Int
+  name_SHORTEST_GTE: Int
+  name_LT: Int
+  name_AVERAGE_LT: Float
+  name_LONGEST_LT: Int
+  name_SHORTEST_LT: Int
+  name_LTE: Int
+  name_AVERAGE_LTE: Float
+  name_LONGEST_LTE: Int
+  name_SHORTEST_LTE: Int
+}
+
+input AnimalClassisUpdateConnectionInput {
+  node: ClassisUpdateInput
+}
+
+input AnimalClassisUpdateFieldInput {
+  where: AnimalClassisConnectionWhere
+  update: AnimalClassisUpdateConnectionInput
+  connect: AnimalClassisConnectFieldInput
+  disconnect: AnimalClassisDisconnectFieldInput
+  create: AnimalClassisCreateFieldInput
+  delete: AnimalClassisDeleteFieldInput
+}
+
+input AnimalConnectInput {
+  classis: AnimalClassisConnectFieldInput
+  zoos: [AnimalZoosConnectFieldInput!]
+}
+
+input AnimalConnectWhere {
+  node: AnimalWhere!
+}
+
+input AnimalCreateInput {
+  name: String!
+  classis: AnimalClassisFieldInput
+  zoos: AnimalZoosFieldInput
+}
+
+input AnimalDeleteInput {
+  classis: AnimalClassisDeleteFieldInput
+  zoos: [AnimalZoosDeleteFieldInput!]
+}
+
+input AnimalDisconnectInput {
+  classis: AnimalClassisDisconnectFieldInput
+  zoos: [AnimalZoosDisconnectFieldInput!]
+}
+
+input AnimalOptions {
+  """
+  Specify one or more AnimalSort objects to sort Animals by. The sorts will be applied in the order in which they are arranged in the array.
+  """
+  sort: [AnimalSort!]
+  limit: Int
+  offset: Int
+}
+
+input AnimalRelationInput {
+  classis: AnimalClassisCreateFieldInput
+  zoos: [AnimalZoosCreateFieldInput!]
+}
+
+"""
+Fields to sort Animals by. The order in which sorts are applied is not guaranteed when specifying many fields in one AnimalSort object.
+"""
+input AnimalSort {
+  name: SortDirection
+}
+
+input AnimalUpdateInput {
+  name: String
+  classis: AnimalClassisUpdateFieldInput
+  zoos: [AnimalZoosUpdateFieldInput!]
+}
+
+input AnimalWhere {
+  OR: [AnimalWhere!]
+  AND: [AnimalWhere!]
+  name: String
+  name_NOT: String
+  name_IN: [String!]
+  name_NOT_IN: [String!]
+  name_CONTAINS: String
+  name_NOT_CONTAINS: String
+  name_STARTS_WITH: String
+  name_NOT_STARTS_WITH: String
+  name_ENDS_WITH: String
+  name_NOT_ENDS_WITH: String
+  classis: ClassisWhere
+  classis_NOT: ClassisWhere
+  classisAggregate: AnimalClassisAggregateInput
+  zoos: ZooWhere @deprecated(reason: "Use `zoos_SOME` instead.")
+  zoos_NOT: ZooWhere @deprecated(reason: "Use `zoos_NONE` instead.")
+  zoosAggregate: AnimalZoosAggregateInput
+
+  """
+  Return Animals where all of the related Zoos match this filter
+  """
+  zoos_ALL: ZooWhere
+
+  """
+  Return Animals where none of the related Zoos match this filter
+  """
+  zoos_NONE: ZooWhere
+
+  """
+  Return Animals where one of the related Zoos match this filter
+  """
+  zoos_SINGLE: ZooWhere
+
+  """
+  Return Animals where some of the related Zoos match this filter
+  """
+  zoos_SOME: ZooWhere
+  classisConnection: AnimalClassisConnectionWhere
+  classisConnection_NOT: AnimalClassisConnectionWhere
+  zoosConnection: AnimalZoosConnectionWhere
+    @deprecated(reason: "Use `zoosConnection_SOME` instead.")
+  zoosConnection_NOT: AnimalZoosConnectionWhere
+    @deprecated(reason: "Use `zoosConnection_NONE` instead.")
+  zoosConnection_ALL: AnimalZoosConnectionWhere
+  zoosConnection_NONE: AnimalZoosConnectionWhere
+  zoosConnection_SINGLE: AnimalZoosConnectionWhere
+  zoosConnection_SOME: AnimalZoosConnectionWhere
+}
+
+input AnimalZoosAggregateInput {
+  count: Int
+  count_LT: Int
+  count_LTE: Int
+  count_GT: Int
+  count_GTE: Int
+  AND: [AnimalZoosAggregateInput!]
+  OR: [AnimalZoosAggregateInput!]
+  node: AnimalZoosNodeAggregationWhereInput
+}
+
+input AnimalZoosConnectFieldInput {
+  where: ZooConnectWhere
+  connect: [ZooConnectInput!]
+}
+
+input AnimalZoosConnectionSort {
+  node: ZooSort
+}
+
+input AnimalZoosConnectionWhere {
+  AND: [AnimalZoosConnectionWhere!]
+  OR: [AnimalZoosConnectionWhere!]
+  node: ZooWhere
+  node_NOT: ZooWhere
+}
+
+input AnimalZoosCreateFieldInput {
+  node: ZooCreateInput!
+}
+
+input AnimalZoosDeleteFieldInput {
+  where: AnimalZoosConnectionWhere
+  delete: ZooDeleteInput
+}
+
+input AnimalZoosDisconnectFieldInput {
+  where: AnimalZoosConnectionWhere
+  disconnect: ZooDisconnectInput
+}
+
+input AnimalZoosFieldInput {
+  create: [AnimalZoosCreateFieldInput!]
+  connect: [AnimalZoosConnectFieldInput!]
+}
+
+input AnimalZoosNodeAggregationWhereInput {
+  AND: [AnimalZoosNodeAggregationWhereInput!]
+  OR: [AnimalZoosNodeAggregationWhereInput!]
+  name_EQUAL: String
+  name_AVERAGE_EQUAL: Float
+  name_LONGEST_EQUAL: Int
+  name_SHORTEST_EQUAL: Int
+  name_GT: Int
+  name_AVERAGE_GT: Float
+  name_LONGEST_GT: Int
+  name_SHORTEST_GT: Int
+  name_GTE: Int
+  name_AVERAGE_GTE: Float
+  name_LONGEST_GTE: Int
+  name_SHORTEST_GTE: Int
+  name_LT: Int
+  name_AVERAGE_LT: Float
+  name_LONGEST_LT: Int
+  name_SHORTEST_LT: Int
+  name_LTE: Int
+  name_AVERAGE_LTE: Float
+  name_LONGEST_LTE: Int
+  name_SHORTEST_LTE: Int
+}
+
+input AnimalZoosUpdateConnectionInput {
+  node: ZooUpdateInput
+}
+
+input AnimalZoosUpdateFieldInput {
+  where: AnimalZoosConnectionWhere
+  update: AnimalZoosUpdateConnectionInput
+  connect: [AnimalZoosConnectFieldInput!]
+  disconnect: [AnimalZoosDisconnectFieldInput!]
+  create: [AnimalZoosCreateFieldInput!]
+  delete: [AnimalZoosDeleteFieldInput!]
+}
+
+input ClassisAnimalsAggregateInput {
+  count: Int
+  count_LT: Int
+  count_LTE: Int
+  count_GT: Int
+  count_GTE: Int
+  AND: [ClassisAnimalsAggregateInput!]
+  OR: [ClassisAnimalsAggregateInput!]
+  node: ClassisAnimalsNodeAggregationWhereInput
+}
+
+input ClassisAnimalsConnectFieldInput {
+  where: AnimalConnectWhere
+  connect: [AnimalConnectInput!]
+}
+
+input ClassisAnimalsConnectionSort {
+  node: AnimalSort
+}
+
+input ClassisAnimalsConnectionWhere {
+  AND: [ClassisAnimalsConnectionWhere!]
+  OR: [ClassisAnimalsConnectionWhere!]
+  node: AnimalWhere
+  node_NOT: AnimalWhere
+}
+
+input ClassisAnimalsCreateFieldInput {
+  node: AnimalCreateInput!
+}
+
+input ClassisAnimalsDeleteFieldInput {
+  where: ClassisAnimalsConnectionWhere
+  delete: AnimalDeleteInput
+}
+
+input ClassisAnimalsDisconnectFieldInput {
+  where: ClassisAnimalsConnectionWhere
+  disconnect: AnimalDisconnectInput
+}
+
+input ClassisAnimalsFieldInput {
+  create: [ClassisAnimalsCreateFieldInput!]
+  connect: [ClassisAnimalsConnectFieldInput!]
+}
+
+input ClassisAnimalsNodeAggregationWhereInput {
+  AND: [ClassisAnimalsNodeAggregationWhereInput!]
+  OR: [ClassisAnimalsNodeAggregationWhereInput!]
+  name_EQUAL: String
+  name_AVERAGE_EQUAL: Float
+  name_LONGEST_EQUAL: Int
+  name_SHORTEST_EQUAL: Int
+  name_GT: Int
+  name_AVERAGE_GT: Float
+  name_LONGEST_GT: Int
+  name_SHORTEST_GT: Int
+  name_GTE: Int
+  name_AVERAGE_GTE: Float
+  name_LONGEST_GTE: Int
+  name_SHORTEST_GTE: Int
+  name_LT: Int
+  name_AVERAGE_LT: Float
+  name_LONGEST_LT: Int
+  name_SHORTEST_LT: Int
+  name_LTE: Int
+  name_AVERAGE_LTE: Float
+  name_LONGEST_LTE: Int
+  name_SHORTEST_LTE: Int
+}
+
+input ClassisAnimalsUpdateConnectionInput {
+  node: AnimalUpdateInput
+}
+
+input ClassisAnimalsUpdateFieldInput {
+  where: ClassisAnimalsConnectionWhere
+  update: ClassisAnimalsUpdateConnectionInput
+  connect: [ClassisAnimalsConnectFieldInput!]
+  disconnect: [ClassisAnimalsDisconnectFieldInput!]
+  create: [ClassisAnimalsCreateFieldInput!]
+  delete: [ClassisAnimalsDeleteFieldInput!]
+}
+
+input ClassisConnectInput {
+  animals: [ClassisAnimalsConnectFieldInput!]
+}
+
+input ClassisConnectWhere {
+  node: ClassisWhere!
+}
+
+input ClassisCreateInput {
+  name: String!
+  animals: ClassisAnimalsFieldInput
+}
+
+input ClassisDeleteInput {
+  animals: [ClassisAnimalsDeleteFieldInput!]
+}
+
+input ClassisDisconnectInput {
+  animals: [ClassisAnimalsDisconnectFieldInput!]
+}
+
+input ClassisOptions {
+  """
+  Specify one or more ClassisSort objects to sort Classes by. The sorts will be applied in the order in which they are arranged in the array.
+  """
+  sort: [ClassisSort!]
+  limit: Int
+  offset: Int
+}
+
+input ClassisRelationInput {
+  animals: [ClassisAnimalsCreateFieldInput!]
+}
+
+"""
+Fields to sort Classes by. The order in which sorts are applied is not guaranteed when specifying many fields in one ClassisSort object.
+"""
+input ClassisSort {
+  name: SortDirection
+}
+
+input ClassisUpdateInput {
+  name: String
+  animals: [ClassisAnimalsUpdateFieldInput!]
+}
+
+input ClassisWhere {
+  OR: [ClassisWhere!]
+  AND: [ClassisWhere!]
+  name: String
+  name_NOT: String
+  name_IN: [String!]
+  name_NOT_IN: [String!]
+  name_CONTAINS: String
+  name_NOT_CONTAINS: String
+  name_STARTS_WITH: String
+  name_NOT_STARTS_WITH: String
+  name_ENDS_WITH: String
+  name_NOT_ENDS_WITH: String
+  animals: AnimalWhere @deprecated(reason: "Use `animals_SOME` instead.")
+  animals_NOT: AnimalWhere @deprecated(reason: "Use `animals_NONE` instead.")
+  animalsAggregate: ClassisAnimalsAggregateInput
+
+  """
+  Return Classes where all of the related Animals match this filter
+  """
+  animals_ALL: AnimalWhere
+
+  """
+  Return Classes where none of the related Animals match this filter
+  """
+  animals_NONE: AnimalWhere
+
+  """
+  Return Classes where one of the related Animals match this filter
+  """
+  animals_SINGLE: AnimalWhere
+
+  """
+  Return Classes where some of the related Animals match this filter
+  """
+  animals_SOME: AnimalWhere
+  animalsConnection: ClassisAnimalsConnectionWhere
+    @deprecated(reason: "Use `animalsConnection_SOME` instead.")
+  animalsConnection_NOT: ClassisAnimalsConnectionWhere
+    @deprecated(reason: "Use `animalsConnection_NONE` instead.")
+  animalsConnection_ALL: ClassisAnimalsConnectionWhere
+  animalsConnection_NONE: ClassisAnimalsConnectionWhere
+  animalsConnection_SINGLE: ClassisAnimalsConnectionWhere
+  animalsConnection_SOME: ClassisAnimalsConnectionWhere
+}
+
+input ReviewConnectInput {
+  zoo: ReviewZooConnectFieldInput
+}
+
+input ReviewConnectWhere {
+  node: ReviewWhere!
+}
+
+input ReviewCreateInput {
+  score: Int!
+  isValid: Boolean
+  zoo: ReviewZooFieldInput
+}
+
+input ReviewDeleteInput {
+  zoo: ReviewZooDeleteFieldInput
+}
+
+input ReviewDisconnectInput {
+  zoo: ReviewZooDisconnectFieldInput
+}
+
+input ReviewOptions {
+  """
+  Specify one or more ReviewSort objects to sort Reviews by. The sorts will be applied in the order in which they are arranged in the array.
+  """
+  sort: [ReviewSort!]
+  limit: Int
+  offset: Int
+}
+
+input ReviewRelationInput {
+  zoo: ReviewZooCreateFieldInput
+}
+
+"""
+Fields to sort Reviews by. The order in which sorts are applied is not guaranteed when specifying many fields in one ReviewSort object.
+"""
+input ReviewSort {
+  score: SortDirection
+  isValid: SortDirection
+}
+
+input ReviewUpdateInput {
+  score: Int
+  isValid: Boolean
+  score_INCREMENT: Int
+  score_DECREMENT: Int
+  zoo: ReviewZooUpdateFieldInput
+}
+
+input ReviewWhere {
+  OR: [ReviewWhere!]
+  AND: [ReviewWhere!]
+  score: Int
+  score_NOT: Int
+  score_IN: [Int!]
+  score_NOT_IN: [Int!]
+  score_LT: Int
+  score_LTE: Int
+  score_GT: Int
+  score_GTE: Int
+  isValid: Boolean
+  isValid_NOT: Boolean
+  zoo: ZooWhere
+  zoo_NOT: ZooWhere
+  zooAggregate: ReviewZooAggregateInput
+  zooConnection: ReviewZooConnectionWhere
+  zooConnection_NOT: ReviewZooConnectionWhere
+}
+
+input ReviewZooAggregateInput {
+  count: Int
+  count_LT: Int
+  count_LTE: Int
+  count_GT: Int
+  count_GTE: Int
+  AND: [ReviewZooAggregateInput!]
+  OR: [ReviewZooAggregateInput!]
+  node: ReviewZooNodeAggregationWhereInput
+}
+
+input ReviewZooConnectFieldInput {
+  where: ZooConnectWhere
+  connect: ZooConnectInput
+}
+
+input ReviewZooConnectionSort {
+  node: ZooSort
+}
+
+input ReviewZooConnectionWhere {
+  AND: [ReviewZooConnectionWhere!]
+  OR: [ReviewZooConnectionWhere!]
+  node: ZooWhere
+  node_NOT: ZooWhere
+}
+
+input ReviewZooCreateFieldInput {
+  node: ZooCreateInput!
+}
+
+input ReviewZooDeleteFieldInput {
+  where: ReviewZooConnectionWhere
+  delete: ZooDeleteInput
+}
+
+input ReviewZooDisconnectFieldInput {
+  where: ReviewZooConnectionWhere
+  disconnect: ZooDisconnectInput
+}
+
+input ReviewZooFieldInput {
+  create: ReviewZooCreateFieldInput
+  connect: ReviewZooConnectFieldInput
+}
+
+input ReviewZooNodeAggregationWhereInput {
+  AND: [ReviewZooNodeAggregationWhereInput!]
+  OR: [ReviewZooNodeAggregationWhereInput!]
+  name_EQUAL: String
+  name_AVERAGE_EQUAL: Float
+  name_LONGEST_EQUAL: Int
+  name_SHORTEST_EQUAL: Int
+  name_GT: Int
+  name_AVERAGE_GT: Float
+  name_LONGEST_GT: Int
+  name_SHORTEST_GT: Int
+  name_GTE: Int
+  name_AVERAGE_GTE: Float
+  name_LONGEST_GTE: Int
+  name_SHORTEST_GTE: Int
+  name_LT: Int
+  name_AVERAGE_LT: Float
+  name_LONGEST_LT: Int
+  name_SHORTEST_LT: Int
+  name_LTE: Int
+  name_AVERAGE_LTE: Float
+  name_LONGEST_LTE: Int
+  name_SHORTEST_LTE: Int
+}
+
+input ReviewZooUpdateConnectionInput {
+  node: ZooUpdateInput
+}
+
+input ReviewZooUpdateFieldInput {
+  where: ReviewZooConnectionWhere
+  update: ReviewZooUpdateConnectionInput
+  connect: ReviewZooConnectFieldInput
+  disconnect: ReviewZooDisconnectFieldInput
+  create: ReviewZooCreateFieldInput
+  delete: ReviewZooDeleteFieldInput
+}
+
+input ZooAnimalsAggregateInput {
+  count: Int
+  count_LT: Int
+  count_LTE: Int
+  count_GT: Int
+  count_GTE: Int
+  AND: [ZooAnimalsAggregateInput!]
+  OR: [ZooAnimalsAggregateInput!]
+  node: ZooAnimalsNodeAggregationWhereInput
+}
+
+input ZooAnimalsConnectFieldInput {
+  where: AnimalConnectWhere
+  connect: [AnimalConnectInput!]
+}
+
+input ZooAnimalsConnectionSort {
+  node: AnimalSort
+}
+
+input ZooAnimalsConnectionWhere {
+  AND: [ZooAnimalsConnectionWhere!]
+  OR: [ZooAnimalsConnectionWhere!]
+  node: AnimalWhere
+  node_NOT: AnimalWhere
+}
+
+input ZooAnimalsCreateFieldInput {
+  node: AnimalCreateInput!
+}
+
+input ZooAnimalsDeleteFieldInput {
+  where: ZooAnimalsConnectionWhere
+  delete: AnimalDeleteInput
+}
+
+input ZooAnimalsDisconnectFieldInput {
+  where: ZooAnimalsConnectionWhere
+  disconnect: AnimalDisconnectInput
+}
+
+input ZooAnimalsFieldInput {
+  create: [ZooAnimalsCreateFieldInput!]
+  connect: [ZooAnimalsConnectFieldInput!]
+}
+
+input ZooAnimalsNodeAggregationWhereInput {
+  AND: [ZooAnimalsNodeAggregationWhereInput!]
+  OR: [ZooAnimalsNodeAggregationWhereInput!]
+  name_EQUAL: String
+  name_AVERAGE_EQUAL: Float
+  name_LONGEST_EQUAL: Int
+  name_SHORTEST_EQUAL: Int
+  name_GT: Int
+  name_AVERAGE_GT: Float
+  name_LONGEST_GT: Int
+  name_SHORTEST_GT: Int
+  name_GTE: Int
+  name_AVERAGE_GTE: Float
+  name_LONGEST_GTE: Int
+  name_SHORTEST_GTE: Int
+  name_LT: Int
+  name_AVERAGE_LT: Float
+  name_LONGEST_LT: Int
+  name_SHORTEST_LT: Int
+  name_LTE: Int
+  name_AVERAGE_LTE: Float
+  name_LONGEST_LTE: Int
+  name_SHORTEST_LTE: Int
+}
+
+input ZooAnimalsUpdateConnectionInput {
+  node: AnimalUpdateInput
+}
+
+input ZooAnimalsUpdateFieldInput {
+  where: ZooAnimalsConnectionWhere
+  update: ZooAnimalsUpdateConnectionInput
+  connect: [ZooAnimalsConnectFieldInput!]
+  disconnect: [ZooAnimalsDisconnectFieldInput!]
+  create: [ZooAnimalsCreateFieldInput!]
+  delete: [ZooAnimalsDeleteFieldInput!]
+}
+
+input ZooConnectInput {
+  animals: [ZooAnimalsConnectFieldInput!]
+  reviews: [ZooReviewsConnectFieldInput!]
+}
+
+input ZooConnectWhere {
+  node: ZooWhere!
+}
+
+input ZooCreateInput {
+  name: String!
+  area: Area!
+  animals: ZooAnimalsFieldInput
+  reviews: ZooReviewsFieldInput
+}
+
+input ZooDeleteInput {
+  animals: [ZooAnimalsDeleteFieldInput!]
+  reviews: [ZooReviewsDeleteFieldInput!]
+}
+
+input ZooDisconnectInput {
+  animals: [ZooAnimalsDisconnectFieldInput!]
+  reviews: [ZooReviewsDisconnectFieldInput!]
+}
+
+input ZooOptions {
+  """
+  Specify one or more ZooSort objects to sort Zoos by. The sorts will be applied in the order in which they are arranged in the array.
+  """
+  sort: [ZooSort!]
+  limit: Int
+  offset: Int
+}
+
+input ZooRelationInput {
+  animals: [ZooAnimalsCreateFieldInput!]
+  reviews: [ZooReviewsCreateFieldInput!]
+}
+
+input ZooReviewsAggregateInput {
+  count: Int
+  count_LT: Int
+  count_LTE: Int
+  count_GT: Int
+  count_GTE: Int
+  AND: [ZooReviewsAggregateInput!]
+  OR: [ZooReviewsAggregateInput!]
+  node: ZooReviewsNodeAggregationWhereInput
+}
+
+input ZooReviewsConnectFieldInput {
+  where: ReviewConnectWhere
+  connect: [ReviewConnectInput!]
+}
+
+input ZooReviewsConnectionSort {
+  node: ReviewSort
+}
+
+input ZooReviewsConnectionWhere {
+  AND: [ZooReviewsConnectionWhere!]
+  OR: [ZooReviewsConnectionWhere!]
+  node: ReviewWhere
+  node_NOT: ReviewWhere
+}
+
+input ZooReviewsCreateFieldInput {
+  node: ReviewCreateInput!
+}
+
+input ZooReviewsDeleteFieldInput {
+  where: ZooReviewsConnectionWhere
+  delete: ReviewDeleteInput
+}
+
+input ZooReviewsDisconnectFieldInput {
+  where: ZooReviewsConnectionWhere
+  disconnect: ReviewDisconnectInput
+}
+
+input ZooReviewsFieldInput {
+  create: [ZooReviewsCreateFieldInput!]
+  connect: [ZooReviewsConnectFieldInput!]
+}
+
+input ZooReviewsNodeAggregationWhereInput {
+  AND: [ZooReviewsNodeAggregationWhereInput!]
+  OR: [ZooReviewsNodeAggregationWhereInput!]
+  score_EQUAL: Int
+  score_AVERAGE_EQUAL: Float
+  score_MIN_EQUAL: Int
+  score_MAX_EQUAL: Int
+  score_SUM_EQUAL: Int
+  score_GT: Int
+  score_AVERAGE_GT: Float
+  score_MIN_GT: Int
+  score_MAX_GT: Int
+  score_SUM_GT: Int
+  score_GTE: Int
+  score_AVERAGE_GTE: Float
+  score_MIN_GTE: Int
+  score_MAX_GTE: Int
+  score_SUM_GTE: Int
+  score_LT: Int
+  score_AVERAGE_LT: Float
+  score_MIN_LT: Int
+  score_MAX_LT: Int
+  score_SUM_LT: Int
+  score_LTE: Int
+  score_AVERAGE_LTE: Float
+  score_MIN_LTE: Int
+  score_MAX_LTE: Int
+  score_SUM_LTE: Int
+}
+
+input ZooReviewsUpdateConnectionInput {
+  node: ReviewUpdateInput
+}
+
+input ZooReviewsUpdateFieldInput {
+  where: ZooReviewsConnectionWhere
+  update: ZooReviewsUpdateConnectionInput
+  connect: [ZooReviewsConnectFieldInput!]
+  disconnect: [ZooReviewsDisconnectFieldInput!]
+  create: [ZooReviewsCreateFieldInput!]
+  delete: [ZooReviewsDeleteFieldInput!]
+}
+
+"""
+Fields to sort Zoos by. The order in which sorts are applied is not guaranteed when specifying many fields in one ZooSort object.
+"""
+input ZooSort {
+  name: SortDirection
+  area: SortDirection
+}
+
+input ZooUpdateInput {
+  name: String
+  area: Area
+  animals: [ZooAnimalsUpdateFieldInput!]
+  reviews: [ZooReviewsUpdateFieldInput!]
+}
+
+input ZooWhere {
+  OR: [ZooWhere!]
+  AND: [ZooWhere!]
+  name: String
+  name_NOT: String
+  name_IN: [String!]
+  name_NOT_IN: [String!]
+  name_CONTAINS: String
+  name_NOT_CONTAINS: String
+  name_STARTS_WITH: String
+  name_NOT_STARTS_WITH: String
+  name_ENDS_WITH: String
+  name_NOT_ENDS_WITH: String
+  area: Area
+  area_NOT: Area
+  area_IN: [Area!]
+  area_NOT_IN: [Area!]
+  animals: AnimalWhere @deprecated(reason: "Use `animals_SOME` instead.")
+  animals_NOT: AnimalWhere @deprecated(reason: "Use `animals_NONE` instead.")
+  animalsAggregate: ZooAnimalsAggregateInput
+
+  """
+  Return Zoos where all of the related Animals match this filter
+  """
+  animals_ALL: AnimalWhere
+
+  """
+  Return Zoos where none of the related Animals match this filter
+  """
+  animals_NONE: AnimalWhere
+
+  """
+  Return Zoos where one of the related Animals match this filter
+  """
+  animals_SINGLE: AnimalWhere
+
+  """
+  Return Zoos where some of the related Animals match this filter
+  """
+  animals_SOME: AnimalWhere
+  reviews: ReviewWhere @deprecated(reason: "Use `reviews_SOME` instead.")
+  reviews_NOT: ReviewWhere @deprecated(reason: "Use `reviews_NONE` instead.")
+  reviewsAggregate: ZooReviewsAggregateInput
+
+  """
+  Return Zoos where all of the related Reviews match this filter
+  """
+  reviews_ALL: ReviewWhere
+
+  """
+  Return Zoos where none of the related Reviews match this filter
+  """
+  reviews_NONE: ReviewWhere
+
+  """
+  Return Zoos where one of the related Reviews match this filter
+  """
+  reviews_SINGLE: ReviewWhere
+
+  """
+  Return Zoos where some of the related Reviews match this filter
+  """
+  reviews_SOME: ReviewWhere
+  animalsConnection: ZooAnimalsConnectionWhere
+    @deprecated(reason: "Use `animalsConnection_SOME` instead.")
+  animalsConnection_NOT: ZooAnimalsConnectionWhere
+    @deprecated(reason: "Use `animalsConnection_NONE` instead.")
+  animalsConnection_ALL: ZooAnimalsConnectionWhere
+  animalsConnection_NONE: ZooAnimalsConnectionWhere
+  animalsConnection_SINGLE: ZooAnimalsConnectionWhere
+  animalsConnection_SOME: ZooAnimalsConnectionWhere
+  reviewsConnection: ZooReviewsConnectionWhere
+    @deprecated(reason: "Use `reviewsConnection_SOME` instead.")
+  reviewsConnection_NOT: ZooReviewsConnectionWhere
+    @deprecated(reason: "Use `reviewsConnection_NONE` instead.")
+  reviewsConnection_ALL: ZooReviewsConnectionWhere
+  reviewsConnection_NONE: ZooReviewsConnectionWhere
+  reviewsConnection_SINGLE: ZooReviewsConnectionWhere
+  reviewsConnection_SOME: ZooReviewsConnectionWhere
+}

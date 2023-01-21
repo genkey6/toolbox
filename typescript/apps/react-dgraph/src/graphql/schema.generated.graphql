@@ -1,0 +1,1276 @@
+#
+directive @dgraph(
+  type: String
+  pred: String
+) on OBJECT | INTERFACE | FIELD_DEFINITION
+
+#
+directive @withSubscription on OBJECT | INTERFACE | FIELD_DEFINITION
+
+#
+directive @secret(field: String!, pred: String) on OBJECT | INTERFACE
+
+#
+directive @remoteResponse(name: String) on FIELD_DEFINITION
+
+#
+directive @cacheControl(maxAge: Int!) on QUERY
+
+#
+directive @hasInverse(field: String!) on FIELD_DEFINITION
+
+#
+directive @id on FIELD_DEFINITION
+
+#
+directive @custom(http: CustomHTTP, dql: String) on FIELD_DEFINITION
+
+#
+directive @lambdaOnMutate(
+  add: Boolean
+  update: Boolean
+  delete: Boolean
+) on OBJECT | INTERFACE
+
+#
+directive @auth(
+  password: AuthRule
+  query: AuthRule
+  add: AuthRule
+  update: AuthRule
+  delete: AuthRule
+) on OBJECT | INTERFACE
+
+#
+directive @cascade(fields: [String]) on FIELD
+
+#
+directive @search(by: [DgraphIndex!]) on FIELD_DEFINITION
+
+#
+directive @remote on OBJECT | INTERFACE | UNION | INPUT_OBJECT | ENUM
+
+#
+directive @lambda on FIELD_DEFINITION
+
+#
+directive @generate(
+  query: GenerateQueryParams
+  mutation: GenerateMutationParams
+  subscription: Boolean
+) on OBJECT | INTERFACE
+
+#
+type Point {
+  #
+  longitude: Float!
+
+  #
+  latitude: Float!
+}
+
+#
+enum Area {
+  #
+  TOHOKU
+
+  #
+  KANTO
+
+  #
+  KOSHINETSU
+
+  #
+  HOKURIKU
+
+  #
+  TOKAI
+
+  #
+  KINKI
+
+  #
+  CHUGOKU
+
+  #
+  SHIKOKU
+
+  #
+  KYUSYU
+}
+
+#
+enum Mode {
+  #
+  BATCH
+
+  #
+  SINGLE
+}
+
+#
+input ClassisOrder {
+  #
+  asc: ClassisOrderable
+
+  #
+  desc: ClassisOrderable
+
+  #
+  then: ClassisOrder
+}
+
+#
+input IntRange {
+  #
+  min: Int!
+
+  #
+  max: Int!
+}
+
+#
+input PointListRef {
+  #
+  points: [PointRef!]!
+}
+
+#
+input GenerateMutationParams {
+  #
+  add: Boolean
+
+  #
+  update: Boolean
+
+  #
+  delete: Boolean
+}
+
+#
+input Int64Filter {
+  #
+  eq: Int64
+
+  #
+  in: [Int64]
+
+  #
+  le: Int64
+
+  #
+  lt: Int64
+
+  #
+  ge: Int64
+
+  #
+  gt: Int64
+
+  #
+  between: Int64Range
+}
+
+#
+input ZooPatch {
+  #
+  name: String
+
+  #
+  area: Area
+
+  #
+  animals: [AnimalRef!]
+
+  #
+  reviews: [ReviewRef]
+}
+
+#
+type Classis {
+  #
+  name: String!
+}
+
+#
+input MultiPolygonRef {
+  #
+  polygons: [PolygonRef!]!
+}
+
+#
+input IntersectsFilter {
+  #
+  polygon: PolygonRef
+
+  #
+  multiPolygon: MultiPolygonRef
+}
+
+#
+enum AnimalHasFilter {
+  #
+  name
+
+  #
+  classis
+
+  #
+  zoo
+}
+
+#
+input AddZooInput {
+  #
+  name: String!
+
+  #
+  area: Area!
+
+  #
+  animals: [AnimalRef!]!
+
+  #
+  reviews: [ReviewRef]!
+}
+
+#
+input ClassisPatch {
+  #
+  name: String
+}
+
+#
+input ClassisRef {
+  #
+  name: String
+}
+
+#
+input IntFilter {
+  #
+  eq: Int
+
+  #
+  in: [Int]
+
+  #
+  le: Int
+
+  #
+  lt: Int
+
+  #
+  ge: Int
+
+  #
+  gt: Int
+
+  #
+  between: IntRange
+}
+
+#
+input ReviewOrder {
+  #
+  asc: ReviewOrderable
+
+  #
+  desc: ReviewOrderable
+
+  #
+  then: ReviewOrder
+}
+
+#
+enum DgraphIndex {
+  #
+  int
+
+  #
+  int64
+
+  #
+  float
+
+  #
+  bool
+
+  #
+  hash
+
+  #
+  exact
+
+  #
+  term
+
+  #
+  fulltext
+
+  #
+  trigram
+
+  #
+  regexp
+
+  #
+  year
+
+  #
+  month
+
+  #
+  day
+
+  #
+  hour
+
+  #
+  geo
+}
+
+#
+input GenerateQueryParams {
+  #
+  get: Boolean
+
+  #
+  query: Boolean
+
+  #
+  password: Boolean
+
+  #
+  aggregate: Boolean
+}
+
+#
+input FloatFilter {
+  #
+  eq: Float
+
+  #
+  in: [Float]
+
+  #
+  le: Float
+
+  #
+  lt: Float
+
+  #
+  ge: Float
+
+  #
+  gt: Float
+
+  #
+  between: FloatRange
+}
+
+#
+input DateTimeFilter {
+  #
+  eq: DateTime
+
+  #
+  in: [DateTime]
+
+  #
+  le: DateTime
+
+  #
+  lt: DateTime
+
+  #
+  ge: DateTime
+
+  #
+  gt: DateTime
+
+  #
+  between: DateTimeRange
+}
+
+#
+input UpdateAnimalInput {
+  #
+  filter: AnimalFilter!
+
+  #
+  set: AnimalPatch
+
+  #
+  remove: AnimalPatch
+}
+
+#
+input UpdateClassisInput {
+  #
+  filter: ClassisFilter!
+
+  #
+  set: ClassisPatch
+
+  #
+  remove: ClassisPatch
+}
+
+#
+input FloatRange {
+  #
+  min: Float!
+
+  #
+  max: Float!
+}
+
+#
+enum HTTPMethod {
+  #
+  GET
+
+  #
+  POST
+
+  #
+  PUT
+
+  #
+  PATCH
+
+  #
+  DELETE
+}
+
+#
+type AnimalAggregateResult {
+  #
+  count: Int
+
+  #
+  nameMin: String
+
+  #
+  nameMax: String
+}
+
+#
+enum ClassisOrderable {
+  #
+  name
+}
+
+#
+input ZooRef {
+  #
+  name: String
+
+  #
+  area: Area
+
+  #
+  animals: [AnimalRef!]
+
+  #
+  reviews: [ReviewRef]
+}
+
+#
+input DateTimeRange {
+  #
+  min: DateTime!
+
+  #
+  max: DateTime!
+}
+
+#
+type PointList {
+  #
+  points: [Point!]!
+}
+
+#
+type UpdateClassisPayload {
+  #
+  classis(
+    filter: ClassisFilter
+    order: ClassisOrder
+    first: Int
+    offset: Int
+  ): [Classis]
+
+  #
+  numUids: Int
+}
+
+#
+input AddReviewInput {
+  #
+  score: Int!
+
+  #
+  isValid: Boolean
+
+  #
+  zoo: ZooRef!
+}
+
+#
+input ReviewRef {
+  #
+  score: Int
+
+  #
+  isValid: Boolean
+
+  #
+  zoo: ZooRef
+}
+
+#
+type ZooAggregateResult {
+  #
+  count: Int
+
+  #
+  nameMin: String
+
+  #
+  nameMax: String
+}
+
+#
+input UpdateZooInput {
+  #
+  filter: ZooFilter!
+
+  #
+  set: ZooPatch
+
+  #
+  remove: ZooPatch
+}
+
+#
+type MultiPolygon {
+  #
+  polygons: [Polygon!]!
+}
+
+#
+type Animal {
+  #
+  name: String!
+
+  #
+  classis(filter: ClassisFilter): Classis!
+
+  #
+  zoo(filter: ZooFilter): Zoo
+}
+
+#
+input AnimalFilter {
+  #
+  has: [AnimalHasFilter]
+
+  #
+  and: [AnimalFilter]
+
+  #
+  or: [AnimalFilter]
+
+  #
+  not: AnimalFilter
+}
+
+#
+type AddZooPayload {
+  #
+  zoo(filter: ZooFilter, order: ZooOrder, first: Int, offset: Int): [Zoo]
+
+  #
+  numUids: Int
+}
+
+#
+enum ZooHasFilter {
+  #
+  name
+
+  #
+  area
+
+  #
+  animals
+
+  #
+  reviews
+}
+
+#
+input AddClassisInput {
+  #
+  name: String!
+}
+
+#
+input ZooFilter {
+  #
+  has: [ZooHasFilter]
+
+  #
+  and: [ZooFilter]
+
+  #
+  or: [ZooFilter]
+
+  #
+  not: ZooFilter
+}
+
+#
+type Zoo {
+  #
+  name: String!
+
+  #
+  area: Area!
+
+  #
+  animals(
+    filter: AnimalFilter
+    order: AnimalOrder
+    first: Int
+    offset: Int
+  ): [Animal!]!
+
+  #
+  reviews(
+    filter: ReviewFilter
+    order: ReviewOrder
+    first: Int
+    offset: Int
+  ): [Review]!
+
+  #
+  animalsAggregate(filter: AnimalFilter): AnimalAggregateResult
+
+  #
+  reviewsAggregate(filter: ReviewFilter): ReviewAggregateResult
+}
+
+#
+type Query {
+  #
+  queryClassis(
+    filter: ClassisFilter
+    order: ClassisOrder
+    first: Int
+    offset: Int
+  ): [Classis]
+
+  #
+  aggregateClassis(filter: ClassisFilter): ClassisAggregateResult
+
+  #
+  queryAnimal(
+    filter: AnimalFilter
+    order: AnimalOrder
+    first: Int
+    offset: Int
+  ): [Animal]
+
+  #
+  aggregateAnimal(filter: AnimalFilter): AnimalAggregateResult
+
+  #
+  queryReview(
+    filter: ReviewFilter
+    order: ReviewOrder
+    first: Int
+    offset: Int
+  ): [Review]
+
+  #
+  aggregateReview(filter: ReviewFilter): ReviewAggregateResult
+
+  #
+  queryZoo(filter: ZooFilter, order: ZooOrder, first: Int, offset: Int): [Zoo]
+
+  #
+  aggregateZoo(filter: ZooFilter): ZooAggregateResult
+}
+
+#
+type DeleteAnimalPayload {
+  #
+  animal(
+    filter: AnimalFilter
+    order: AnimalOrder
+    first: Int
+    offset: Int
+  ): [Animal]
+
+  #
+  msg: String
+
+  #
+  numUids: Int
+}
+
+#
+type UpdateReviewPayload {
+  #
+  review(
+    filter: ReviewFilter
+    order: ReviewOrder
+    first: Int
+    offset: Int
+  ): [Review]
+
+  #
+  numUids: Int
+}
+
+#
+input ReviewPatch {
+  #
+  score: Int
+
+  #
+  isValid: Boolean
+
+  #
+  zoo: ZooRef
+}
+
+#
+input AuthRule {
+  #
+  and: [AuthRule]
+
+  #
+  or: [AuthRule]
+
+  #
+  not: AuthRule
+
+  #
+  rule: String
+}
+
+#
+enum ReviewHasFilter {
+  #
+  score
+
+  #
+  isValid
+
+  #
+  zoo
+}
+
+#
+input PointGeoFilter {
+  #
+  near: NearFilter
+
+  #
+  within: WithinFilter
+}
+
+# The DateTime scalar type represents date and time as a string in RFC3339 format.
+# For example: "1985-04-12T23:20:50.52Z" represents 20 mins 50.52 secs after the 23rd hour of Apr 12th 1985 in UTC.
+scalar DateTime
+
+#
+input StringFullTextFilter {
+  #
+  alloftext: String
+
+  #
+  anyoftext: String
+}
+
+#
+type UpdateAnimalPayload {
+  #
+  animal(
+    filter: AnimalFilter
+    order: AnimalOrder
+    first: Int
+    offset: Int
+  ): [Animal]
+
+  #
+  numUids: Int
+}
+
+#
+input AddAnimalInput {
+  #
+  name: String!
+
+  #
+  classis: ClassisRef!
+
+  #
+  zoo: ZooRef
+}
+
+#
+input StringExactFilter {
+  #
+  eq: String
+
+  #
+  in: [String]
+
+  #
+  le: String
+
+  #
+  lt: String
+
+  #
+  ge: String
+
+  #
+  gt: String
+
+  #
+  between: StringRange
+}
+
+#
+type DeleteZooPayload {
+  #
+  zoo(filter: ZooFilter, order: ZooOrder, first: Int, offset: Int): [Zoo]
+
+  #
+  msg: String
+
+  #
+  numUids: Int
+}
+
+#
+enum AnimalOrderable {
+  #
+  name
+}
+
+#
+type ClassisAggregateResult {
+  #
+  count: Int
+
+  #
+  nameMin: String
+
+  #
+  nameMax: String
+}
+
+#
+type DeleteReviewPayload {
+  #
+  review(
+    filter: ReviewFilter
+    order: ReviewOrder
+    first: Int
+    offset: Int
+  ): [Review]
+
+  #
+  msg: String
+
+  #
+  numUids: Int
+}
+
+#
+type Review {
+  #
+  score: Int!
+
+  #
+  isValid: Boolean
+
+  #
+  zoo(filter: ZooFilter): Zoo!
+}
+
+#
+input WithinFilter {
+  #
+  polygon: PolygonRef!
+}
+
+#
+type UpdateZooPayload {
+  #
+  zoo(filter: ZooFilter, order: ZooOrder, first: Int, offset: Int): [Zoo]
+
+  #
+  numUids: Int
+}
+
+#
+input StringRegExpFilter {
+  #
+  regexp: String
+}
+
+#
+input StringRange {
+  #
+  min: String!
+
+  #
+  max: String!
+}
+
+#
+enum ZooOrderable {
+  #
+  name
+}
+
+#
+input AnimalRef {
+  #
+  name: String
+
+  #
+  classis: ClassisRef
+
+  #
+  zoo: ZooRef
+}
+
+# The Int64 scalar type represents a signed 64‐bit numeric non‐fractional value.
+# Int64 can represent values in range [-(2^63),(2^63 - 1)].
+scalar Int64
+
+#
+type AddAnimalPayload {
+  #
+  animal(
+    filter: AnimalFilter
+    order: AnimalOrder
+    first: Int
+    offset: Int
+  ): [Animal]
+
+  #
+  numUids: Int
+}
+
+#
+type AddClassisPayload {
+  #
+  classis(
+    filter: ClassisFilter
+    order: ClassisOrder
+    first: Int
+    offset: Int
+  ): [Classis]
+
+  #
+  numUids: Int
+}
+
+#
+input StringTermFilter {
+  #
+  allofterms: String
+
+  #
+  anyofterms: String
+}
+
+#
+input ZooOrder {
+  #
+  asc: ZooOrderable
+
+  #
+  desc: ZooOrderable
+
+  #
+  then: ZooOrder
+}
+
+#
+type Mutation {
+  #
+  addClassis(input: [AddClassisInput!]!): AddClassisPayload
+
+  #
+  updateClassis(input: UpdateClassisInput!): UpdateClassisPayload
+
+  #
+  deleteClassis(filter: ClassisFilter!): DeleteClassisPayload
+
+  #
+  addAnimal(input: [AddAnimalInput!]!): AddAnimalPayload
+
+  #
+  updateAnimal(input: UpdateAnimalInput!): UpdateAnimalPayload
+
+  #
+  deleteAnimal(filter: AnimalFilter!): DeleteAnimalPayload
+
+  #
+  addReview(input: [AddReviewInput!]!): AddReviewPayload
+
+  #
+  updateReview(input: UpdateReviewInput!): UpdateReviewPayload
+
+  #
+  deleteReview(filter: ReviewFilter!): DeleteReviewPayload
+
+  #
+  addZoo(input: [AddZooInput!]!): AddZooPayload
+
+  #
+  updateZoo(input: UpdateZooInput!): UpdateZooPayload
+
+  #
+  deleteZoo(filter: ZooFilter!): DeleteZooPayload
+}
+
+#
+input PolygonRef {
+  #
+  coordinates: [PointListRef!]!
+}
+
+#
+enum ReviewOrderable {
+  #
+  score
+}
+
+#
+input ClassisFilter {
+  #
+  has: [ClassisHasFilter]
+
+  #
+  and: [ClassisFilter]
+
+  #
+  or: [ClassisFilter]
+
+  #
+  not: ClassisFilter
+}
+
+#
+input AnimalPatch {
+  #
+  name: String
+
+  #
+  classis: ClassisRef
+
+  #
+  zoo: ZooRef
+}
+
+#
+enum ClassisHasFilter {
+  #
+  name
+}
+
+#
+input UpdateReviewInput {
+  #
+  filter: ReviewFilter!
+
+  #
+  set: ReviewPatch
+
+  #
+  remove: ReviewPatch
+}
+
+#
+type AddReviewPayload {
+  #
+  review(
+    filter: ReviewFilter
+    order: ReviewOrder
+    first: Int
+    offset: Int
+  ): [Review]
+
+  #
+  numUids: Int
+}
+
+#
+type ReviewAggregateResult {
+  #
+  count: Int
+
+  #
+  scoreMin: Int
+
+  #
+  scoreMax: Int
+
+  #
+  scoreSum: Int
+
+  #
+  scoreAvg: Float
+}
+
+#
+input PolygonGeoFilter {
+  #
+  near: NearFilter
+
+  #
+  within: WithinFilter
+
+  #
+  contains: ContainsFilter
+
+  #
+  intersects: IntersectsFilter
+}
+
+#
+type DeleteClassisPayload {
+  #
+  classis(
+    filter: ClassisFilter
+    order: ClassisOrder
+    first: Int
+    offset: Int
+  ): [Classis]
+
+  #
+  msg: String
+
+  #
+  numUids: Int
+}
+
+#
+input StringHashFilter {
+  #
+  eq: String
+
+  #
+  in: [String]
+}
+
+#
+input Int64Range {
+  #
+  min: Int64!
+
+  #
+  max: Int64!
+}
+
+#
+input CustomHTTP {
+  #
+  url: String!
+
+  #
+  method: HTTPMethod!
+
+  #
+  body: String
+
+  #
+  graphql: String
+
+  #
+  mode: Mode
+
+  #
+  forwardHeaders: [String!]
+
+  #
+  secretHeaders: [String!]
+
+  #
+  introspectionHeaders: [String!]
+
+  #
+  skipIntrospection: Boolean
+}
+
+#
+input PointRef {
+  #
+  longitude: Float!
+
+  #
+  latitude: Float!
+}
+
+#
+input NearFilter {
+  #
+  distance: Float!
+
+  #
+  coordinate: PointRef!
+}
+
+#
+type Polygon {
+  #
+  coordinates: [PointList!]!
+}
+
+#
+input ContainsFilter {
+  #
+  point: PointRef
+
+  #
+  polygon: PolygonRef
+}
+
+#
+input AnimalOrder {
+  #
+  asc: AnimalOrderable
+
+  #
+  desc: AnimalOrderable
+
+  #
+  then: AnimalOrder
+}
+
+#
+input ReviewFilter {
+  #
+  has: [ReviewHasFilter]
+
+  #
+  and: [ReviewFilter]
+
+  #
+  or: [ReviewFilter]
+
+  #
+  not: ReviewFilter
+}

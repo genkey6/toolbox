@@ -1,0 +1,65 @@
+{
+  "name": "nextjs-neo4j-graphql",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/nextjs-neo4j-graphql",
+  "projectType": "application",
+  "targets": {
+    "prepare": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "graphql-codegen --config apps/nextjs-neo4j-graphql/graphql/codegen.yaml"
+          }
+        ]
+      }
+    },
+    "build": {
+      "executor": "@nrwl/next:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "root": "apps/nextjs-neo4j-graphql",
+        "outputPath": "dist/apps/nextjs-neo4j-graphql"
+      },
+      "configurations": {
+        "development": {
+          "outputPath": "apps/nextjs-neo4j-graphql"
+        },
+        "production": {}
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/next:server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "nextjs-neo4j-graphql:build",
+        "dev": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "nextjs-neo4j-graphql:build:development",
+          "dev": true
+        },
+        "production": {
+          "buildTarget": "nextjs-neo4j-graphql:build:production",
+          "dev": false
+        }
+      }
+    },
+    "export": {
+      "executor": "@nrwl/next:export",
+      "options": {
+        "buildTarget": "nextjs-neo4j-graphql:build:production"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/nextjs-neo4j-graphql/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": []
+}
