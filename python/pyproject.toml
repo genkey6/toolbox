@@ -11,7 +11,10 @@ starlette = "^0.23.0"
 gunicorn = "^20.1.0"
 uvicorn = "^0.20.0"
 python-multipart = "^0.0.5"
-strawberry-graphql = {extras = ["asgi"], version = "^0.155.0"}
+strawberry-graphql = {extras = ["asgi", "pydantic"], version = "^0.155.2"}
+motor = {extras = ["srv"], version = "^3.1.1"}
+beanie = "^1.17.0"
+python-dotenv = "^0.21.1"
 
 [tool.poetry.group.dev.dependencies]
 autopep8 = "^2.0.0"
@@ -68,4 +71,9 @@ warn_unused_configs = true
 warn_unused_ignores = true
 namespace_packages = true
 exclude = "tasks"
-plugins = "strawberry.ext.mypy_plugin"
+plugins = ["pydantic.mypy", "strawberry.ext.mypy_plugin"]
+
+# https://stackoverflow.com/questions/74432419/how-to-ignore-missing-library-stubs-for-mypy-by-adding-to-pyproject-toml
+[[tool.mypy.overrides]]
+module = "motor.*"
+ignore_missing_imports = true
