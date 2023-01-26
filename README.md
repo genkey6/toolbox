@@ -41,6 +41,11 @@ The project was generated and managed using [Nx](https://nx.dev).
 
 
 ### Python
+- starlette_mongodb
+  - MongoDB - a document database (https://www.mongodb.com/)
+  - Beanie - a ODM (Object Document Mapper) library based on Pydantic and Motor (https://beanie-odm.dev/)
+    - Pydantic - a data validation and type definition library (https://docs.pydantic.dev/)
+    - Motor - an asynchronous driver library for MongoDB (https://motor.readthedocs.io/en/stable/index.html)
 - starlette_strawberry_graphql
   - starlette - a web server framework (https://www.starlette.io/)
   - strawberry - a GraphQL server library (https://strawberry.rocks/docs)

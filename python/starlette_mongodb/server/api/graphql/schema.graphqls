@@ -1,0 +1,55 @@
+input AnimalInput {
+  name: String!
+  classis: ClassisInput!
+}
+
+type AnimalType {
+  name: String!
+  classis: ClassisType!
+}
+
+enum Area {
+  TOHOKU
+  KANTO
+  KOSHINETSU
+  HOKURIKU
+  TOKAI
+  KINKI
+  CHUGOKU
+  SHIKOKU
+  KYUSYU
+}
+
+input ClassisInput {
+  name: String!
+}
+
+type ClassisType {
+  name: String!
+}
+
+type Mutation {
+  registerZoo(zoo: ZooInput!): [ZooType!]!
+}
+
+type Query {
+  zoos: [ZooType!]!
+}
+
+scalar UUID
+
+input ZooInput {
+  _id: String!
+  revisionId: UUID = null
+  name: String!
+  area: Area!
+  animals: [AnimalInput!] = []
+}
+
+type ZooType {
+  _id: String!
+  revisionId: UUID
+  name: String!
+  area: Area!
+  animals: [AnimalType!]
+}
