@@ -789,14 +789,14 @@ full = ["httpx (>=0.22.0)", "itsdangerous", "jinja2", "python-multipart", "pyyam
 
 [[package]]
 name = "strawberry-graphql"
-version = "0.162.0"
+version = "0.164.0"
 description = "A library for creating GraphQL APIs"
 category = "main"
 optional = false
 python-versions = ">=3.7,<4.0"
 files = [
-    {file = "strawberry_graphql-0.162.0-py3-none-any.whl", hash = "sha256:224d51775c5999324e91f6cb2ce17532c5ef15502a813a4dafc0fe566ca50321"},
-    {file = "strawberry_graphql-0.162.0.tar.gz", hash = "sha256:99627959683bbead4a8537b79f2ab7043f2e0f2a138d61a6a72ac26094ffe150"},
+    {file = "strawberry_graphql-0.164.0-py3-none-any.whl", hash = "sha256:d131a02d138fdd6943cbd2b50432d5e9ffaaaa3412f6d555a622c97c0b1ba881"},
+    {file = "strawberry_graphql-0.164.0.tar.gz", hash = "sha256:966df27065816b51b894752d68daa8310d02dcfe2d7547af84af176f4ba77b0f"},
 ]
 
 [package.dependencies]
@@ -804,17 +804,17 @@ graphql-core = ">=3.2.0,<3.3.0"
 pydantic = {version = "<2", optional = true, markers = "extra == \"pydantic\""}
 python-dateutil = ">=2.7.0,<3.0.0"
 python-multipart = {version = ">=0.0.5,<0.0.6", optional = true, markers = "extra == \"asgi\" or extra == \"debug-server\" or extra == \"fastapi\""}
-starlette = {version = ">=0.13.6", optional = true, markers = "extra == \"asgi\" or extra == \"debug-server\""}
+starlette = {version = ">=0.18.0", optional = true, markers = "extra == \"asgi\" or extra == \"debug-server\""}
 typing_extensions = ">=3.7.4,<5.0.0"
 
 [package.extras]
 aiohttp = ["aiohttp (>=3.7.4.post0,<4.0.0)"]
-asgi = ["python-multipart (>=0.0.5,<0.0.6)", "starlette (>=0.13.6)"]
+asgi = ["python-multipart (>=0.0.5,<0.0.6)", "starlette (>=0.18.0)"]
 chalice = ["chalice (>=1.22,<2.0)"]
 channels = ["asgiref (>=3.2,<4.0)", "channels (>=3.0.5)"]
 cli = ["click (>=7.0,<9.0)", "libcst (>=0.4.7)", "pygments (>=2.3,<3.0)", "rich (>=12.0.0)"]
 debug = ["libcst (>=0.4.7)", "rich (>=12.0.0)"]
-debug-server = ["click (>=7.0,<9.0)", "libcst (>=0.4.7)", "pygments (>=2.3,<3.0)", "python-multipart (>=0.0.5,<0.0.6)", "rich (>=12.0.0)", "starlette (>=0.13.6)", "uvicorn (>=0.11.6,<0.21.0)"]
+debug-server = ["click (>=7.0,<9.0)", "libcst (>=0.4.7)", "pygments (>=2.3,<3.0)", "python-multipart (>=0.0.5,<0.0.6)", "rich (>=12.0.0)", "starlette (>=0.18.0)", "uvicorn (>=0.11.6,<0.22.0)"]
 django = ["Django (>=3.2)", "asgiref (>=3.2,<4.0)"]
 fastapi = ["fastapi (>=0.65.2)", "python-multipart (>=0.0.5,<0.0.6)"]
 flask = ["flask (>=1.1)"]
@@ -880,4 +880,4 @@ standard = ["colorama (>=0.4)", "httptools (>=0.5.0)", "python-dotenv (>=0.13)",
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f4aba78f9d0d1ac5ef0b77e831ca1c599668fdbf0bb945c41573db2244fc3072"
+content-hash = "140c700cf2df8cb53f33fcbddfc58fac36048b88f45f7c0f9c102ceb44c53744"
