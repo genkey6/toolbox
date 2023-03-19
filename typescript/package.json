@@ -34,7 +34,7 @@
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.3",
     "@neo4j/graphql": "^3.14.2",
-    "@nestjs/apollo": "^10.1.7",
+    "@nestjs/apollo": "^11.0.0",
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/graphql": "^10.1.7",
