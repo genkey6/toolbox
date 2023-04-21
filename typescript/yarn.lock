@@ -3293,9 +3293,9 @@
     uuid "^9.0.0"
 
 "@nestjs/apollo@^11.0.0":
-  version "11.0.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/apollo/-/apollo-11.0.4.tgz#0c544ee5c237f6b36c91775927cf053ff644e2e6"
-  integrity sha512-K2jjUI0aMGhSD3kW7j8Qy42NdxlZ32bOeUL057xWf7i4WDm8KaxqUelxB2+RK6HqL48H/qDQ5Sk6aH9UGYtmZQ==
+  version "11.0.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/apollo/-/apollo-11.0.5.tgz#9739bafadc3a48a8372c60c8128a720bf830eedc"
+  integrity sha512-6+V+fw2tBT4MskOV012k2UoEL0D2nteDbpOTlb42tur0yCQseBx1E+HdqpLAeRr25F6H6LipgEOum9y9NF4DGQ==
   dependencies:
     "@apollo/server-plugin-landing-page-graphql-playground" "4.0.0"
     iterall "1.3.0"
