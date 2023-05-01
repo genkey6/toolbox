@@ -1979,18 +1979,7 @@
     source-map "^0.5.7"
     stylis "4.1.4"
 
-"@emotion/cache@^11.10.7":
-  version "11.10.8"
-  resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.10.8.tgz#3b39b4761bea0ae2f4f07f0a425eec8b6977c03e"
-  integrity sha512-5fyqGHi51LU95o7qQ/vD1jyvC4uCY5GcBT+UgP4LHdpO9jPDlXqhrRr9/wCKmfoAvh5G/F7aOh4MwQa+8uEqhA==
-  dependencies:
-    "@emotion/memoize" "^0.8.0"
-    "@emotion/sheet" "^1.2.1"
-    "@emotion/utils" "^1.2.0"
-    "@emotion/weak-memoize" "^0.3.0"
-    stylis "4.1.4"
-
-"@emotion/cache@^11.10.8":
+"@emotion/cache@^11.10.7", "@emotion/cache@^11.10.8":
   version "11.10.8"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-11.10.8.tgz#3b39b4761bea0ae2f4f07f0a425eec8b6977c03e"
   integrity sha512-5fyqGHi51LU95o7qQ/vD1jyvC4uCY5GcBT+UgP4LHdpO9jPDlXqhrRr9/wCKmfoAvh5G/F7aOh4MwQa+8uEqhA==
@@ -13854,11 +13843,6 @@ stylehacks@^5.1.0:
     browserslist "^4.16.6"
     postcss-selector-parser "^6.0.4"
 
-stylis@4.1.3:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.1.3.tgz#fd2fbe79f5fed17c55269e16ed8da14c84d069f7"
-  integrity sha512-GP6WDNWf+o403jrEp9c5jibKavrtLW+/qYGhFxFrG8maXhwTBI7gLLhiBb0o7uFccWN+EOS9aMO6cGHWAO07OA==
-
 stylis@4.1.4:
   version "4.1.4"
   resolved "https://registry.yarnpkg.com/stylis/-/stylis-4.1.4.tgz#9cb60e7153d8ac6d02d773552bf51c7a0344535b"
@@ -14638,9 +14622,9 @@ vite-plugin-eslint@^1.8.1:
     rollup "^2.77.2"
 
 vite-tsconfig-paths@^4.0.2:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/vite-tsconfig-paths/-/vite-tsconfig-paths-4.1.0.tgz#e5d0796be173f603a9874a33ac38793775949fb1"
-  integrity sha512-Ps275He1fF6Wpm/3tvyokIfXd3lcmk4KsdCG4yduSTRVt+htaxIoEor88M1h3soOeXg5fn77ZiupVRwGeB/XNQ==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/vite-tsconfig-paths/-/vite-tsconfig-paths-4.2.0.tgz#bd2647d3eadafb65a10fc98a2ca565211f2eaf63"
+  integrity sha512-jGpus0eUy5qbbMVGiTxCL1iB9ZGN6Bd37VGLJU39kTDD6ZfULTTb1bcc5IeTWqWJKiWV5YihCaibeASPiGi8kw==
   dependencies:
     debug "^4.1.1"
     globrex "^0.1.2"
