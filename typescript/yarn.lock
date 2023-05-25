@@ -2868,14 +2868,14 @@
     uuid "^9.0.0"
 
 "@nestjs/apollo@^11.0.0":
-  version "11.0.5"
-  resolved "https://registry.yarnpkg.com/@nestjs/apollo/-/apollo-11.0.5.tgz#9739bafadc3a48a8372c60c8128a720bf830eedc"
-  integrity sha512-6+V+fw2tBT4MskOV012k2UoEL0D2nteDbpOTlb42tur0yCQseBx1E+HdqpLAeRr25F6H6LipgEOum9y9NF4DGQ==
+  version "11.0.6"
+  resolved "https://registry.yarnpkg.com/@nestjs/apollo/-/apollo-11.0.6.tgz#7bd39e0efbaef3eceabfd99b3ae1e2dc8eff2d7a"
+  integrity sha512-w9I8oZHkHcBdR2sXoag4USe5nCOqWVdINYZTAnsLq8tafIolkGQAI9O+o1cGLyyV+9wwh4GAty5b9+jx/x1sbA==
   dependencies:
     "@apollo/server-plugin-landing-page-graphql-playground" "4.0.0"
     iterall "1.3.0"
     lodash.omit "4.5.0"
-    tslib "2.5.0"
+    tslib "2.5.2"
 
 "@nestjs/common@^9.0.0":
   version "9.4.2"
