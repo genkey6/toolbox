@@ -1538,7 +1538,14 @@
   resolved "https://registry.yarnpkg.com/@babel/regjsgen/-/regjsgen-0.8.0.tgz#f0ba69b075e1f05fb2825b7fad991e7adbb18310"
   integrity sha512-x/rqGMdzj+fWZvCOYForTghzbtqPDZ5gPwaoNGHdgDfF2QA/XZbCBp4Moo5scrkAMPhB7z26XM/AaHuIJdgauA==
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.12.5", "@babel/runtime@^7.14.8", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2":
+  version "7.22.3"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.22.3.tgz#0a7fce51d43adbf0f7b517a71f4c3aaca92ebcbb"
+  integrity sha512-XsDuspWKLUsxwCp6r7EhsExHtYfbe5oAGQ19kqngTdCPUoPQzOPdUbD/pB9PJiwb2ptYKQDjSJT3R6dC+EPqfQ==
+  dependencies:
+    regenerator-runtime "^0.13.11"
+
+"@babel/runtime@^7.12.5", "@babel/runtime@^7.14.8", "@babel/runtime@^7.18.3", "@babel/runtime@^7.20.7", "@babel/runtime@^7.21.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.7.2", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7":
   version "7.21.5"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.21.5.tgz#8492dddda9644ae3bda3b45eabe87382caee7200"
   integrity sha512-8jI69toZqqcsnqGGqwGS4Qb1VwLOEp4hz+CXPywcvjs60u3B4Pom/U/7rm4W8tMOYEB+E9wgD0mW1l3r8qlI9Q==
@@ -3995,9 +4002,9 @@
     "@types/serve-static" "*"
 
 "@types/google.maps@^3.45.3":
-  version "3.53.1"
-  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.53.1.tgz#c1fb7325eaa5af3574aedb9390d16798be0dad00"
-  integrity sha512-+7JVpq+kFzTU3TweSz6huYuFedZ4s60WeABaXYU6rDZczdpfoQ5DuZNCDc/eAAcdFJpxMMDpzf3d9YTMNodBFg==
+  version "3.53.2"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.53.2.tgz#ba921cc7900b72d4f58538a770a99bfadd9952a2"
+  integrity sha512-rgTa3R5DyFTcjX4hmuGs0XR+kD4M5tZ14lcyYzDDJGr5h0JYj7DbbNZRZNJKDzZOGH3fOXWpIbZGj3BxZbpmjw==
 
 "@types/graceful-fs@^4.1.3":
   version "4.1.6"
@@ -8176,10 +8183,10 @@ inquirer@^8.0.0:
     through "^2.3.6"
     wrap-ansi "^7.0.0"
 
-instantsearch.js@4.56.0:
-  version "4.56.0"
-  resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-4.56.0.tgz#faedcbaac1c94575703470a048cf39e4170fc6d0"
-  integrity sha512-A50GZjcK9c3o3y49fqOX6ghI4leCPAiz0h5xY/yvU7mMXCwwXZw1BsUbOPM02gDvaUdYvibycW7byVQno3DK1g==
+instantsearch.js@4.56.1:
+  version "4.56.1"
+  resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-4.56.1.tgz#ddff17fea5ed8d8a0e14e66a977f107f7143adef"
+  integrity sha512-4BQdnMEDWP9IRF12xninO/yR1f7F+mE935X0eVKuhUqitZF7GvUsL93MysXxHyPJnrbC6o0Aofc3kNcTKteKWw==
   dependencies:
     "@algolia/events" "^4.0.1"
     "@algolia/ui-components-highlight-vdom" "^1.2.1"
@@ -10793,9 +10800,9 @@ postcss@^8.3.5, postcss@^8.4.14, postcss@^8.4.19, postcss@^8.4.23:
     source-map-js "^1.0.2"
 
 preact@^10.10.0:
-  version "10.14.1"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.14.1.tgz#1e15ef6a09e241a48d12c872b90557914b03abac"
-  integrity sha512-4XDSnUisk3YFBb3p9WeKeH1mKoxdFUsaXcvxs9wlpYR1wax/TWJVqhwmIWbByX0h7jMEJH6Zc5J6jqc58FKaNQ==
+  version "10.15.1"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.15.1.tgz#a1de60c9fc0c79a522d969c65dcaddc5d994eede"
+  integrity sha512-qs2ansoQEwzNiV5eAcRT1p1EC/dmEzaATVDJNiB3g2sRDWdA7b7MurXdJjB2+/WQktGWZwxvDrnuRFbWuIr64g==
 
 prelude-ls@^1.2.1:
   version "1.2.1"
@@ -11009,22 +11016,22 @@ react-dom@18.2.0:
     scheduler "^0.23.0"
 
 react-instantsearch-hooks-web@^6.30.1:
-  version "6.44.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks-web/-/react-instantsearch-hooks-web-6.44.0.tgz#cd40bcdcfd6953652e4d9b9cc94c38adaa512772"
-  integrity sha512-jLCU0r1UtVPEbMIP7YL+qU8Lfoy/Z3nLMDS6iBVn3ybB/IBESjYASJsqYGZ1Yk17W6Dl0TWSIacgQsfu8QcE2Q==
+  version "6.44.1"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks-web/-/react-instantsearch-hooks-web-6.44.1.tgz#79706bf83fd70cef1c5cd534fcafc2eba4e65b3b"
+  integrity sha512-QZwBakRfBEAhla18YMk2te988p7BN6DA2G6DpXKvOCUSBUR72Lp5+DH8OAO0M7jGtH9xzFcCWVMD50hKhK8yaQ==
   dependencies:
     "@babel/runtime" "^7.1.2"
-    instantsearch.js "4.56.0"
-    react-instantsearch-hooks "6.44.0"
+    instantsearch.js "4.56.1"
+    react-instantsearch-hooks "6.44.1"
 
-react-instantsearch-hooks@6.44.0:
-  version "6.44.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks/-/react-instantsearch-hooks-6.44.0.tgz#59d98a6f2938009add633998832cd0f842df8c5a"
-  integrity sha512-1c/cd6OHAe8hP3PBeEUBwdVi6j3lu0AxGR17wun6j+aKC8/7gTyW0LXGUgm54xU5CORez8/OVh0akK+XDxu+9g==
+react-instantsearch-hooks@6.44.1:
+  version "6.44.1"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks/-/react-instantsearch-hooks-6.44.1.tgz#10483bd27b0c399d3297d055421572914694e653"
+  integrity sha512-2WZd+Q8iA8J2tSvxNhGg7FOHgng+IE34tfIksoGyxjn6N7AW42VGdL0Wdpm+J98eJemCEiJ3/seTJaOHq3a+YA==
   dependencies:
     "@babel/runtime" "^7.1.2"
     algoliasearch-helper "^3.13.0"
-    instantsearch.js "4.56.0"
+    instantsearch.js "4.56.1"
     use-sync-external-store "^1.0.0"
 
 "react-is@^16.12.0 || ^17.0.0 || ^18.0.0", react-is@^18.0.0, react-is@^18.2.0:
