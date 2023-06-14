@@ -64,10 +64,10 @@
   "devDependencies": {
     "@babel/preset-react": "^7.14.5",
     "@emotion/babel-plugin": "11.11.0",
-    "@graphql-codegen/cli": "^3.0.0",
+    "@graphql-codegen/cli": "^4.0.0",
     "@graphql-codegen/introspection": "^4.0.0",
     "@graphql-codegen/typescript": "^4.0.0",
-    "@graphql-codegen/typescript-operations": "^3.0.0",
+    "@graphql-codegen/typescript-operations": "^4.0.0",
     "@graphql-codegen/typescript-urql": "^3.7.3",
     "@graphql-codegen/urql-introspection": "^2.2.1",
     "@nestjs/schematics": "^9.0.0",
