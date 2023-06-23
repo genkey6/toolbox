@@ -3171,14 +3171,14 @@
     tslib "2.5.3"
 
 "@nestjs/graphql@^12.0.0":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-12.0.1.tgz#bf56b61de5f1e086f4eb35e1812b2360e1b4fdc9"
-  integrity sha512-6/bnatLaizmCJuaWhR10ro7ieG3D2mKE5xUsf7yGMVeip8LN0lmPE/pdqHpXZLaIeIPGe3NajLvCUkW7PPtdBA==
+  version "12.0.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-12.0.3.tgz#1590e1c433c37c054866aba867cbd5cbf1039048"
+  integrity sha512-EEB8SrH1mnIIO6N4JIA6a4GsxJsPk30jhB4Q/AnBtvkbf/dgcAAPzdF32FDrIHKNAfthxxwfV+9swkBshgaeOA==
   dependencies:
     "@graphql-tools/merge" "9.0.0"
     "@graphql-tools/schema" "10.0.0"
     "@graphql-tools/utils" "10.0.1"
-    "@nestjs/mapped-types" "2.0.0"
+    "@nestjs/mapped-types" "2.0.2"
     chokidar "3.5.3"
     fast-glob "3.2.12"
     graphql-tag "2.12.6"
@@ -3190,10 +3190,10 @@
     uuid "9.0.0"
     ws "8.13.0"
 
-"@nestjs/mapped-types@2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-2.0.0.tgz#1d65f4c1a16af30080153e9c05b86e2f5d56cf65"
-  integrity sha512-JyIOY1OE4x2t8Z2ImWLQJnHVqLCBHJZXm6RqcOG3+4rIsqMQxm5smHbb7H5C6tLAdDcRYd/fG2gYK1J1GiqKLw==
+"@nestjs/mapped-types@2.0.2":
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-2.0.2.tgz#c8a090a8d22145b85ed977414c158534210f2e4f"
+  integrity sha512-V0izw6tWs6fTp9+KiiPUbGHWALy563Frn8X6Bm87ANLRuE46iuBMD5acKBDP5lKL/75QFvrzSJT7HkCbB0jTpg==
 
 "@nestjs/platform-express@^10.0.0":
   version "10.0.2"
