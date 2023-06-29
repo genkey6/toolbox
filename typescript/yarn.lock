@@ -177,9 +177,9 @@
     rxjs "7.8.1"
 
 "@apollo/cache-control-types@^1.0.2":
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/@apollo/cache-control-types/-/cache-control-types-1.0.2.tgz#f42ed3563acc7f1f50617d65d208483977adc68e"
-  integrity sha512-Por80co1eUm4ATsvjCOoS/tIR8PHxqVjsA6z76I6Vw0rFn4cgyVElQcmQDIZiYsy41k8e5xkrMRECkM2WR8pNw==
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@apollo/cache-control-types/-/cache-control-types-1.0.3.tgz#5da62cf64c3b4419dabfef4536b57a40c8ff0b47"
+  integrity sha512-F17/vCp7QVwom9eG7ToauIKdAxpSoadsJnqIfyryLFSkLSOEqu+eC5Z3N8OXcUVStuOMcNHlyraRsA6rRICu4g==
 
 "@apollo/composition@2.4.2":
   version "2.4.2"
@@ -199,10 +199,10 @@
     js-levenshtein "^1.1.6"
     uuid "^9.0.0"
 
-"@apollo/federation-internals@2.4.7":
-  version "2.4.7"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.4.7.tgz#023344b6b265386c869c45eedeeada4a7b33ff3a"
-  integrity sha512-a4iH+72yVd0zNGC5ZGEDfbqI81wktE7qAHjH4rQzJTqMQ74By3PoMD2DefOArcweonvd4b/h4oQJXGvLK2V4Ew==
+"@apollo/federation-internals@2.4.8":
+  version "2.4.8"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.4.8.tgz#2bd8281a5224168c893f1b485269d435951dee68"
+  integrity sha512-P+lmrP7WJTLMKvcPCBimc5ABgaCxMup5r6MXzZ59N32xsOjD+kvQHEhtiZb368/a833VhiDbIh8ytCMeyBvwFA==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -366,12 +366,12 @@
     "@apollo/federation-internals" "2.4.2"
 
 "@apollo/subgraph@^2.2.3":
-  version "2.4.7"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.4.7.tgz#24f149f64f3a1080a85569d994dd540234aa5a38"
-  integrity sha512-2P6sROTIiu6hy8q8xCT1vznBctGG5PXclpmMcaEElBmkVfpBlrBsOCdge83onCJ4ODrolZZ6nmyJQFbxHCOiEA==
+  version "2.4.8"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.4.8.tgz#be76a9dccbae60aae2bfcfafc99b1e8c2df485cf"
+  integrity sha512-nz0cTxmj/u/VBNzEdkCsgZy+FuRBlOcRQQ+CX2D9PdgQpdHESUZSxwXvS59bxGpErsZh578RqMGFjedtoQmVBA==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.4.7"
+    "@apollo/federation-internals" "2.4.8"
 
 "@apollo/usage-reporting-protobuf@^4.0.0", "@apollo/usage-reporting-protobuf@^4.1.0":
   version "4.1.0"
@@ -3112,14 +3112,14 @@
     react-is "^18.2.0"
 
 "@neo4j/cypher-builder@~0.5.1":
-  version "0.5.2"
-  resolved "https://registry.yarnpkg.com/@neo4j/cypher-builder/-/cypher-builder-0.5.2.tgz#07f00a9361e507eab7c1db0a766c702145521340"
-  integrity sha512-+vAqHv6OtC0oN3cuMCzA8GH/bldiwjauW8GX8TEFa5P9u8ys/DrlVaJCHDtejdtT7FWph2IdEALx27Kjqs/GeA==
+  version "0.5.4"
+  resolved "https://registry.yarnpkg.com/@neo4j/cypher-builder/-/cypher-builder-0.5.4.tgz#c4052cf8fed8aba988f121ceb01d38d0a1af7ed6"
+  integrity sha512-IJOvrhlxfrF/Fk2JPxX72zlaIR1FW6hEx2Jc/pgiFmeLzGEQK/vBkdrxvceg0UZDkIH2xe2yqUd7EZb5X5qtxA==
 
 "@neo4j/graphql@^3.14.2":
-  version "3.21.0"
-  resolved "https://registry.yarnpkg.com/@neo4j/graphql/-/graphql-3.21.0.tgz#2400794cf5acdcefe6a7d2298892f7302cdc6781"
-  integrity sha512-e1ykd+8Fyy8rXG841XEHVanArPVGbsDHl0Jamfng6cUdhdM/h4eDu25ByN4X3p/F8IsbOBdrJnR5CVH0ER/Llg==
+  version "3.22.0"
+  resolved "https://registry.yarnpkg.com/@neo4j/graphql/-/graphql-3.22.0.tgz#5cb8c527aad603b35413252ff8bf8094556c38f3"
+  integrity sha512-ILeuW1+hxJ4E9+9qYzIHzL1KH5N5sZsE5MDYe1C7ofxR64BbsNFySGTShNZmHpcvXAgyIFWi3Z2paZ0CbMDPpg==
   dependencies:
     "@apollo/subgraph" "^2.2.3"
     "@graphql-tools/merge" "^8.3.3"
@@ -12749,12 +12749,12 @@ tsconfig-paths@^4.0.0, tsconfig-paths@^4.1.2:
     minimist "^1.2.6"
     strip-bom "^3.0.0"
 
-tslib@2.5.3, tslib@^2.0.1, tslib@^2.0.3, tslib@~2.5.0:
+tslib@2.5.3, tslib@^2.0.3, tslib@~2.5.0:
   version "2.5.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.5.3.tgz#24944ba2d990940e6e982c4bea147aba80209913"
   integrity sha512-mSxlJJwl3BMEQCUNnxXBU9jP4JBktcEGhURcPR6VQVlnP0FdDEsIaz0C35dXNGLyRfrATNofF0F5p2KPxQgB+w==
 
-tslib@2.6.0, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0:
+tslib@2.6.0, tslib@^2.0.1, tslib@^2.1.0, tslib@^2.3.0, tslib@^2.4.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-2.6.0.tgz#b295854684dbda164e181d259a22cd779dcd7bc3"
   integrity sha512-7At1WUettjcSRHXCyYtTselblcHl9PJFFVKiCAy/bY97+BPZXSQ2wbq0P9s8tK2G7dFQfNnlJnPAiArVBVBsfA==
