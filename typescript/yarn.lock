@@ -3171,9 +3171,9 @@
     tslib "2.5.3"
 
 "@nestjs/graphql@^12.0.0":
-  version "12.0.6"
-  resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-12.0.6.tgz#4849089ca274f080c103a784b70ad41a994d7287"
-  integrity sha512-2viILuWU4AHyf1kR/O6NqUWObwxp7iU3GsRgVxL7VhKtI/x+wsrT3iAN+eeO6MvujeyMg0FkM884DGIJsIbzAw==
+  version "12.0.7"
+  resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-12.0.7.tgz#228cd61d0f10bb17b966c35d3f667efa140d6680"
+  integrity sha512-4XnfdAb9JHazh6Z/zbh0IUbcs8iPS5VxCoDS77CsjOHDCYzrwDVFWiZ3k5XofACIpdyekagavmVNuo1G0Q6JlA==
   dependencies:
     "@graphql-tools/merge" "9.0.0"
     "@graphql-tools/schema" "10.0.0"
