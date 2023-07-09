@@ -204,10 +204,10 @@
     js-levenshtein "^1.1.6"
     uuid "^9.0.0"
 
-"@apollo/federation-internals@2.4.8":
-  version "2.4.8"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.4.8.tgz#2bd8281a5224168c893f1b485269d435951dee68"
-  integrity sha512-P+lmrP7WJTLMKvcPCBimc5ABgaCxMup5r6MXzZ59N32xsOjD+kvQHEhtiZb368/a833VhiDbIh8ytCMeyBvwFA==
+"@apollo/federation-internals@2.4.9":
+  version "2.4.9"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.4.9.tgz#d83abf5ea4bbbfde98e90d8eb63e3fb6fb866e3c"
+  integrity sha512-HFlO0zC0o9TjmbDeufoW5tMZkMO6xTHul+cb8Kznp7qx+svpvVulbS3l961Y/sPwVlX7PmB+X6rcKOc9O5jjcA==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -371,12 +371,12 @@
     "@apollo/federation-internals" "2.4.2"
 
 "@apollo/subgraph@^2.2.3":
-  version "2.4.8"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.4.8.tgz#be76a9dccbae60aae2bfcfafc99b1e8c2df485cf"
-  integrity sha512-nz0cTxmj/u/VBNzEdkCsgZy+FuRBlOcRQQ+CX2D9PdgQpdHESUZSxwXvS59bxGpErsZh578RqMGFjedtoQmVBA==
+  version "2.4.9"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.4.9.tgz#5ef84047ab0340ae624aef7009aab4e32781fc1f"
+  integrity sha512-+hI9lrbLkhoGP7x3czFJF77Kl0uFwEQrhIsqTGtWl6LZo16HCx+h7aZutJMcu8is9r2o7xSm30gbDrnAb3m4hg==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.4.8"
+    "@apollo/federation-internals" "2.4.9"
 
 "@apollo/usage-reporting-protobuf@^4.0.0", "@apollo/usage-reporting-protobuf@^4.1.0":
   version "4.1.0"
@@ -3116,22 +3116,22 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
-"@neo4j/cypher-builder@~0.5.1":
+"@neo4j/cypher-builder@~0.5.2":
   version "0.5.4"
   resolved "https://registry.yarnpkg.com/@neo4j/cypher-builder/-/cypher-builder-0.5.4.tgz#c4052cf8fed8aba988f121ceb01d38d0a1af7ed6"
   integrity sha512-IJOvrhlxfrF/Fk2JPxX72zlaIR1FW6hEx2Jc/pgiFmeLzGEQK/vBkdrxvceg0UZDkIH2xe2yqUd7EZb5X5qtxA==
 
 "@neo4j/graphql@^3.14.2":
-  version "3.22.0"
-  resolved "https://registry.yarnpkg.com/@neo4j/graphql/-/graphql-3.22.0.tgz#5cb8c527aad603b35413252ff8bf8094556c38f3"
-  integrity sha512-ILeuW1+hxJ4E9+9qYzIHzL1KH5N5sZsE5MDYe1C7ofxR64BbsNFySGTShNZmHpcvXAgyIFWi3Z2paZ0CbMDPpg==
+  version "3.23.1"
+  resolved "https://registry.yarnpkg.com/@neo4j/graphql/-/graphql-3.23.1.tgz#fe89051b0ae87cd15d699e761c399bb5334d625f"
+  integrity sha512-VqeJLhGlxXnKwFEYYYmOoOtoik/7a9ihPkxSTdoRp3Rmbd6e2+BQL9dx72PJ42hUu2rbYja5EArowgAMLsv9fg==
   dependencies:
     "@apollo/subgraph" "^2.2.3"
     "@graphql-tools/merge" "^8.3.3"
     "@graphql-tools/resolvers-composition" "^6.5.3"
     "@graphql-tools/schema" "9.0.19"
     "@graphql-tools/utils" "^9.0.0"
-    "@neo4j/cypher-builder" "~0.5.1"
+    "@neo4j/cypher-builder" "~0.5.2"
     camelcase "^6.3.0"
     debug "^4.3.4"
     deep-equal "^2.0.5"
