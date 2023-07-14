@@ -2664,7 +2664,7 @@
     value-or-promise "^1.0.11"
     ws "^8.12.0"
 
-"@graphql-tools/utils@10.0.1", "@graphql-tools/utils@^10.0.0":
+"@graphql-tools/utils@10.0.1":
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.0.1.tgz#52e6c0ce920b57473823e487184f5017974fe4c4"
   integrity sha512-i1FozbDGHgdsFA47V/JvQZ0FE8NAy0Eiz7HGCJO2MkNdZAKNnwei66gOq0JWYVFztwpwbVQ09GkKhq7Kjcq5Cw==
@@ -2677,6 +2677,15 @@
   resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-8.9.0.tgz#c6aa5f651c9c99e1aca55510af21b56ec296cdb7"
   integrity sha512-pjJIWH0XOVnYGXCqej8g/u/tsfV4LvLlj0eATKQu5zwnxd/TiTHq7Cg313qUPTFFHZ3PP5wJ15chYVtLDwaymg==
   dependencies:
+    tslib "^2.4.0"
+
+"@graphql-tools/utils@^10.0.0":
+  version "10.0.3"
+  resolved "https://registry.yarnpkg.com/@graphql-tools/utils/-/utils-10.0.3.tgz#e5d5b217ba643b7b67a35b50086b5d831aadb71c"
+  integrity sha512-6uO41urAEIs4sXQT2+CYGsUTkHkVo/2MpM/QjoHj6D6xoEF2woXHBpdAVi0HKIInDwZqWgEYOwIFez0pERxa1Q==
+  dependencies:
+    "@graphql-typed-document-node/core" "^3.1.1"
+    dset "^3.1.2"
     tslib "^2.4.0"
 
 "@graphql-tools/utils@^8.8.0":
@@ -3183,9 +3192,9 @@
     tslib "2.6.0"
 
 "@nestjs/graphql@^12.0.0":
-  version "12.0.7"
-  resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-12.0.7.tgz#228cd61d0f10bb17b966c35d3f667efa140d6680"
-  integrity sha512-4XnfdAb9JHazh6Z/zbh0IUbcs8iPS5VxCoDS77CsjOHDCYzrwDVFWiZ3k5XofACIpdyekagavmVNuo1G0Q6JlA==
+  version "12.0.8"
+  resolved "https://registry.yarnpkg.com/@nestjs/graphql/-/graphql-12.0.8.tgz#15143b76dfb5fa4dc880d68a1bf2f7159ea077b6"
+  integrity sha512-odYDHUdLOMCxjC5VSEmF/23r8cY40N1KCwBkWaCmI1IF76Ffe3srWRDv8HS9tcai9eSmOeSWuyLBEg2OSru0cQ==
   dependencies:
     "@graphql-tools/merge" "9.0.0"
     "@graphql-tools/schema" "10.0.0"
