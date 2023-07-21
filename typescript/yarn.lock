@@ -204,10 +204,10 @@
     js-levenshtein "^1.1.6"
     uuid "^9.0.0"
 
-"@apollo/federation-internals@2.4.9":
-  version "2.4.9"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.4.9.tgz#d83abf5ea4bbbfde98e90d8eb63e3fb6fb866e3c"
-  integrity sha512-HFlO0zC0o9TjmbDeufoW5tMZkMO6xTHul+cb8Kznp7qx+svpvVulbS3l961Y/sPwVlX7PmB+X6rcKOc9O5jjcA==
+"@apollo/federation-internals@2.5.1":
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.5.1.tgz#059f186bd21dbf8439c05ff214617db3484bb096"
+  integrity sha512-+TSt+GJWBeDiHRsLhaake2sYDni2yW3f4xRSq3+I6vsHs1GIcKgUbhq4fiDe61v6OXU1IckuI+TELRSMZNNh6A==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -371,12 +371,12 @@
     "@apollo/federation-internals" "2.4.2"
 
 "@apollo/subgraph@^2.2.3":
-  version "2.4.9"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.4.9.tgz#5ef84047ab0340ae624aef7009aab4e32781fc1f"
-  integrity sha512-+hI9lrbLkhoGP7x3czFJF77Kl0uFwEQrhIsqTGtWl6LZo16HCx+h7aZutJMcu8is9r2o7xSm30gbDrnAb3m4hg==
+  version "2.5.1"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.5.1.tgz#d3e78d3ba545741f036b28015c65ce88d37da527"
+  integrity sha512-q6L9pbGL+R9yZpX4sQlf9YPwe/skbQB2pgOLV+H0m83nEwAx0eKgjuzNGqokb9YBYU23dv3kkItR3nHBw5RMUw==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.4.9"
+    "@apollo/federation-internals" "2.5.1"
 
 "@apollo/usage-reporting-protobuf@^4.0.0", "@apollo/usage-reporting-protobuf@^4.1.0":
   version "4.1.0"
@@ -3283,22 +3283,22 @@
     prop-types "^15.8.1"
     react-is "^18.2.0"
 
-"@neo4j/cypher-builder@~0.5.2":
-  version "0.5.4"
-  resolved "https://registry.yarnpkg.com/@neo4j/cypher-builder/-/cypher-builder-0.5.4.tgz#c4052cf8fed8aba988f121ceb01d38d0a1af7ed6"
-  integrity sha512-IJOvrhlxfrF/Fk2JPxX72zlaIR1FW6hEx2Jc/pgiFmeLzGEQK/vBkdrxvceg0UZDkIH2xe2yqUd7EZb5X5qtxA==
+"@neo4j/cypher-builder@~0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@neo4j/cypher-builder/-/cypher-builder-0.6.0.tgz#f5e30af1ad8dcbf7481ddc83128463885ffb3bbf"
+  integrity sha512-EqY+X8LnbFGQfjMghDaLtulF9a/D6ir27/crx4Z4WCKpNIT7Ecz7lseyHf8Jjk5WRle6IChUsY78+aggO9o72w==
 
 "@neo4j/graphql@^3.14.2":
-  version "3.23.1"
-  resolved "https://registry.yarnpkg.com/@neo4j/graphql/-/graphql-3.23.1.tgz#fe89051b0ae87cd15d699e761c399bb5334d625f"
-  integrity sha512-VqeJLhGlxXnKwFEYYYmOoOtoik/7a9ihPkxSTdoRp3Rmbd6e2+BQL9dx72PJ42hUu2rbYja5EArowgAMLsv9fg==
+  version "3.24.0"
+  resolved "https://registry.yarnpkg.com/@neo4j/graphql/-/graphql-3.24.0.tgz#b95dc86eef8d2304a718943503a1099fb0852fed"
+  integrity sha512-z0rsKdis0tsawvyywvyhGQxXU3gu2NkvkVYz8mxU4Iopu4LsZcCw7HhLIZKiSU1JotFh3NsT/WxRwBfFM1svQg==
   dependencies:
     "@apollo/subgraph" "^2.2.3"
     "@graphql-tools/merge" "^8.3.3"
     "@graphql-tools/resolvers-composition" "^6.5.3"
     "@graphql-tools/schema" "9.0.19"
     "@graphql-tools/utils" "^9.0.0"
-    "@neo4j/cypher-builder" "~0.5.2"
+    "@neo4j/cypher-builder" "~0.6.0"
     camelcase "^6.3.0"
     debug "^4.3.4"
     deep-equal "^2.0.5"
@@ -3308,7 +3308,7 @@
     graphql-relay "^0.10.0"
     jose "^4.13.1"
     pluralize "^8.0.0"
-    semver "^7.3.7"
+    semver "^7.5.4"
     uuid "^9.0.0"
 
 "@nestjs/apollo@^12.0.0":
@@ -6851,14 +6851,14 @@ deep-eql@^4.1.2:
     type-detect "^4.0.0"
 
 deep-equal@^2.0.5:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-2.2.1.tgz#c72ab22f3a7d3503a4ca87dde976fe9978816739"
-  integrity sha512-lKdkdV6EOGoVn65XaOsPdH4rMxTZOnmFyuIkMjM1i5HHCbfjC97dawgTAy0deYNfuqUqW+Q5VrVaQYtUpSd6yQ==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/deep-equal/-/deep-equal-2.2.2.tgz#9b2635da569a13ba8e1cc159c2f744071b115daa"
+  integrity sha512-xjVyBf0w5vH0I42jdAZzOKVldmPgSulmiyPRywoyq7HXC9qdgo17kxJE+rdnif5Tz6+pIrpJI8dCpMNLIGkUiA==
   dependencies:
     array-buffer-byte-length "^1.0.0"
     call-bind "^1.0.2"
     es-get-iterator "^1.1.3"
-    get-intrinsic "^1.2.0"
+    get-intrinsic "^1.2.1"
     is-arguments "^1.1.1"
     is-array-buffer "^3.0.2"
     is-date-object "^1.0.5"
@@ -8065,7 +8065,7 @@ get-func-name@^2.0.0:
   resolved "https://registry.yarnpkg.com/get-func-name/-/get-func-name-2.0.0.tgz#ead774abee72e20409433a066366023dd6887a41"
   integrity sha512-Hm0ixYtaSZ/V7C8FJrtZIuBBI+iSgL+1Aq82zSu8VQNB4S3Gk8e7Qs3VwBDJAhmRZcFqkl3tQu36g/Foh5I5ig==
 
-get-intrinsic@^1.0.2, get-intrinsic@^1.1.1, get-intrinsic@^1.1.3, get-intrinsic@^1.2.0:
+get-intrinsic@^1.0.2, get-intrinsic@^1.1.1, get-intrinsic@^1.1.3, get-intrinsic@^1.2.0, get-intrinsic@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/get-intrinsic/-/get-intrinsic-1.2.1.tgz#d295644fed4505fc9cde952c37ee12b477a83d82"
   integrity sha512-2DcsyfABl+gVHEfCOaTrWgyt+tb6MSEGmKq+kI5HwLbIYgjgmMcV8KQ41uaKz1xxUcn9tJtgFbQUEVcEbd0FYw==
@@ -8966,7 +8966,14 @@ is-symbol@^1.0.2, is-symbol@^1.0.3:
   dependencies:
     has-symbols "^1.0.2"
 
-is-typed-array@^1.1.10, is-typed-array@^1.1.9:
+is-typed-array@^1.1.10:
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/is-typed-array/-/is-typed-array-1.1.12.tgz#d0bab5686ef4a76f7a73097b95470ab199c57d4a"
+  integrity sha512-Z14TF2JNG8Lss5/HMqt0//T9JeHXttXy5pH/DBU4vi98ozO2btxzq9MwYDZYnKwU8nRsz/+GVFVRDq3DkVuSPg==
+  dependencies:
+    which-typed-array "^1.1.11"
+
+is-typed-array@^1.1.9:
   version "1.1.10"
   resolved "https://registry.yarnpkg.com/is-typed-array/-/is-typed-array-1.1.10.tgz#36a5b5cb4189b575d1a3e4b08536bfb485801e3f"
   integrity sha512-PJqgEHiWZvMpaFZ3uTc8kHPM4+4ADTlDniuQL7cU/UDA0Ql7F70yGfHph3cLNe+c9toaigv+DFzTJKhc2CtO6A==
@@ -12325,7 +12332,7 @@ semver@^7.3.4, semver@^7.3.5, semver@^7.3.8:
   dependencies:
     lru-cache "^6.0.0"
 
-semver@^7.3.7:
+semver@^7.3.7, semver@^7.5.4:
   version "7.5.4"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.4.tgz#483986ec4ed38e1c6c48c34894a9182dbff68a6e"
   integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
@@ -13881,17 +13888,16 @@ which-module@^2.0.0:
   resolved "https://registry.yarnpkg.com/which-module/-/which-module-2.0.1.tgz#776b1fe35d90aebe99e8ac15eb24093389a4a409"
   integrity sha512-iBdZ57RDvnOR9AGBhML2vFZf7h8vmBjhoaZqODJBFWHVtKkDmKuHai3cx5PgVMrX5YDNp27AofYbAwctSS+vhQ==
 
-which-typed-array@^1.1.9:
-  version "1.1.9"
-  resolved "https://registry.yarnpkg.com/which-typed-array/-/which-typed-array-1.1.9.tgz#307cf898025848cf995e795e8423c7f337efbde6"
-  integrity sha512-w9c4xkx6mPidwp7180ckYWfMmvxpjlZuIudNtDf4N/tTAUB8VJbX25qZoAsrtGuYNnGw3pa0AXgbGKRB8/EceA==
+which-typed-array@^1.1.11, which-typed-array@^1.1.9:
+  version "1.1.11"
+  resolved "https://registry.yarnpkg.com/which-typed-array/-/which-typed-array-1.1.11.tgz#99d691f23c72aab6768680805a271b69761ed61a"
+  integrity sha512-qe9UWWpkeG5yzZ0tNYxDmd7vo58HDBc39mZ0xWWpolAGADdFOzkfamWLDxkOWcvHQKVmdTyQdLD4NOfjLWTKew==
   dependencies:
     available-typed-arrays "^1.0.5"
     call-bind "^1.0.2"
     for-each "^0.3.3"
     gopd "^1.0.1"
     has-tostringtag "^1.0.0"
-    is-typed-array "^1.1.10"
 
 which@^2.0.1:
   version "2.0.2"
