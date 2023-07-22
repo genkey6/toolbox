@@ -4426,9 +4426,9 @@
     "@types/serve-static" "*"
 
 "@types/google.maps@^3.45.3":
-  version "3.53.4"
-  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.53.4.tgz#741442764ebaef1a6705f3ab2c047ffeba333020"
-  integrity sha512-IiDAYTONQEKCBssPtoM0XqWF8YIIk2leba4NOf9qVQ/d8l5gLuS3QT87TrX6/u8rMonQAXC9KEDmM4q7sT6MWg==
+  version "3.53.5"
+  resolved "https://registry.yarnpkg.com/@types/google.maps/-/google.maps-3.53.5.tgz#0f3010ab4eabe46721f3604462196975b640aab9"
+  integrity sha512-HoRq4Te8J6krH7hj+TfdYepqegoKZCj3kkaK5gf+ySFSHLvyqYkDvkrtbcVJXQ6QBphQ0h1TF7p4J6sOh4r/zg==
 
 "@types/graceful-fs@^4.1.3":
   version "4.1.6"
@@ -5235,10 +5235,10 @@ ajv@^6.10.0, ajv@^6.12.4, ajv@^6.12.5:
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
 
-algoliasearch-helper@^3.13.2:
-  version "3.13.3"
-  resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-3.13.3.tgz#d23341fb88f490c9b2b83fc2362d1551d52117b6"
-  integrity sha512-jhbbuYZ+fheXpaJlqdJdFa1jOsrTWKmRRTYDM3oVTto5VodZzM7tT+BHzslAotaJf/81CKrm6yLRQn8WIr/K4A==
+algoliasearch-helper@3.13.5:
+  version "3.13.5"
+  resolved "https://registry.yarnpkg.com/algoliasearch-helper/-/algoliasearch-helper-3.13.5.tgz#0e20f6af3b2cb918e0b8bcb6f7f233bdbb53be1d"
+  integrity sha512-UsiDw8/RN3S/46EEJ6s5fX/vCNPlMNPQrB0TL/105Umyc+UdgbErCTaSf46pcVDIctAFN+9HF7txEg1eMHUvww==
   dependencies:
     "@algolia/events" "^4.0.1"
 
@@ -8718,10 +8718,10 @@ inquirer@^8.0.0:
     through "^2.3.6"
     wrap-ansi "^7.0.0"
 
-instantsearch.js@4.56.5:
-  version "4.56.5"
-  resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-4.56.5.tgz#b7524e71f884e21cd7bb1c96a1d47e06e7d1c27c"
-  integrity sha512-H4f9/tpadWy5KQ5ZbA9RYzsuQrNVZZv2rTqT5nDxftjgfPzeuCEg61l9tukZIlxmbx8HGRKPt5wqpZKdmkkSdg==
+instantsearch.js@4.56.7:
+  version "4.56.7"
+  resolved "https://registry.yarnpkg.com/instantsearch.js/-/instantsearch.js-4.56.7.tgz#3eb4f2cbcf48c89805b835d91ccd840b2b50c84c"
+  integrity sha512-3zDC7qmRKz3w6UEsO95maeuJ6rVL7AyTJIDZ3ET9nYYGUuSk5zJozrBR9ag/aazLW2oXyLrrdwhF0qlmuCRDVA==
   dependencies:
     "@algolia/events" "^4.0.1"
     "@algolia/ui-components-highlight-vdom" "^1.2.1"
@@ -8730,7 +8730,7 @@ instantsearch.js@4.56.5:
     "@types/google.maps" "^3.45.3"
     "@types/hogan.js" "^3.0.0"
     "@types/qs" "^6.5.3"
-    algoliasearch-helper "^3.13.2"
+    algoliasearch-helper "3.13.5"
     hogan.js "^3.0.2"
     htm "^3.0.0"
     preact "^10.10.0"
@@ -11870,22 +11870,22 @@ react-dom@18.2.0:
     scheduler "^0.23.0"
 
 react-instantsearch-hooks-web@^6.30.1:
-  version "6.46.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks-web/-/react-instantsearch-hooks-web-6.46.0.tgz#86bc992e55042b72fa7fcda214da4f8184f94a5e"
-  integrity sha512-XLzC+SRfkNnEeIIGMNYha+J0k1Vuh9ZCff8G3Gx5MjqGIK3RNA6kTS+A3imUm1+IR4NZo5Y2OOjn6kZRsfy/sg==
+  version "6.47.1"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks-web/-/react-instantsearch-hooks-web-6.47.1.tgz#641af756549bd1683c2df23717325062ac2f5fde"
+  integrity sha512-8fme1QVc+k2/I6r+iSkPb/WDQgIrdRGPwlcMaD7lqaSndFrOpmGL2tl6RAC56DXMZ6CzZbM6myJyPDmeRM7VRw==
   dependencies:
     "@babel/runtime" "^7.1.2"
-    instantsearch.js "4.56.5"
-    react-instantsearch-hooks "6.46.0"
+    instantsearch.js "4.56.7"
+    react-instantsearch-hooks "6.47.1"
 
-react-instantsearch-hooks@6.46.0:
-  version "6.46.0"
-  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks/-/react-instantsearch-hooks-6.46.0.tgz#359da20ae69c1aec2fa893b1f0a1fcdd10218185"
-  integrity sha512-6Ug9WhSBQGIVUyindciJ0BjpvKGO4jx1ThSUrLn0gMzxdAQ04gzfZiqy56rK1LwDopso6UsfW/m//u0zPt0CBw==
+react-instantsearch-hooks@6.47.1:
+  version "6.47.1"
+  resolved "https://registry.yarnpkg.com/react-instantsearch-hooks/-/react-instantsearch-hooks-6.47.1.tgz#03f2f71a52a8f5346687daea59aa61e4bfef2ac4"
+  integrity sha512-6tJiEqlTj5zWc5WpyvSZC+hrN27j8f12s+z2QV4Le8CovFliPNsJD+H1wpuNHOH4lH0zG/28eW8qgBQVuOzhgw==
   dependencies:
     "@babel/runtime" "^7.1.2"
-    algoliasearch-helper "^3.13.2"
-    instantsearch.js "4.56.5"
+    algoliasearch-helper "3.13.5"
+    instantsearch.js "4.56.7"
     use-sync-external-store "^1.0.0"
 
 "react-is@^16.12.0 || ^17.0.0 || ^18.0.0", react-is@^18.0.0, react-is@^18.2.0:
