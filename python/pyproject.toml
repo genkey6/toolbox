@@ -8,7 +8,7 @@ authors = ["genkey6 <genkey6@gmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 starlette = "^0.30.0"
-gunicorn = "^20.1.0"
+gunicorn = "^21.0.0"
 uvicorn = "^0.23.0"
 python-multipart = "^0.0.6"
 strawberry-graphql = {extras = ["asgi", "pydantic"], version = "^0.168.0"}
