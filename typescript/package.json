@@ -95,7 +95,7 @@
     "@vitejs/plugin-react-swc": "^3.0.1",
     "@vitest/coverage-c8": "~0.33.0",
     "@vitest/ui": "^0.33.0",
-    "babel-jest": "29.6.2",
+    "babel-jest": "29.6.4",
     "eslint": "~8.47.0",
     "eslint-config-next": "13.4.19",
     "eslint-config-prettier": "8.10.0",
