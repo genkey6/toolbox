@@ -204,10 +204,10 @@
     js-levenshtein "^1.1.6"
     uuid "^9.0.0"
 
-"@apollo/federation-internals@2.5.3":
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.5.3.tgz#22387df8e1492c9f887b0824c74fadde30167674"
-  integrity sha512-KHYpXa9XudQmbp5NX7wEEj0bxTkJIGtmKkZnOsKW9jDvHXurV/QTfzMDRqPVExMn+mdEVPTN3nySIp6vVhcs1Q==
+"@apollo/federation-internals@2.5.4":
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@apollo/federation-internals/-/federation-internals-2.5.4.tgz#688720416a532d31b76532f8316ea3fec6254073"
+  integrity sha512-SJCbP90KNlk6QJqUfvBrL/PdYzXKz3aZx2vP2kqJE9Ccc6UrUVrI70XuJ09o6n080sgCArDTC9+ngjdh6P5vTg==
   dependencies:
     "@types/uuid" "^9.0.0"
     chalk "^4.1.0"
@@ -371,12 +371,12 @@
     "@apollo/federation-internals" "2.4.2"
 
 "@apollo/subgraph@^2.2.3":
-  version "2.5.3"
-  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.5.3.tgz#d5cf4fde4cb6c952cefc34d59f18e76e04f35eb5"
-  integrity sha512-OaRyJmB4nI3JfAZs6RA5vd+AHMMEMRWBx5Ns0iDhkm/KEZqj5dcD0Vsyu9vCJm3zyAfYClHC3ZUlxSKYRDi/zQ==
+  version "2.5.4"
+  resolved "https://registry.yarnpkg.com/@apollo/subgraph/-/subgraph-2.5.4.tgz#8250a20ad1ed5e6a85a4cf8801ed2cce21c879d3"
+  integrity sha512-6F7D36C2fhy54hZLqcqVhFat5/7QuZJaTjeVUYTbnl3vMx5KSaCdRh30gdfn2V8lNoekmcLGRvVBc4PzBOO5jw==
   dependencies:
     "@apollo/cache-control-types" "^1.0.2"
-    "@apollo/federation-internals" "2.5.3"
+    "@apollo/federation-internals" "2.5.4"
 
 "@apollo/usage-reporting-protobuf@^4.0.0", "@apollo/usage-reporting-protobuf@^4.1.0":
   version "4.1.0"
@@ -3301,9 +3301,9 @@
   integrity sha512-EqY+X8LnbFGQfjMghDaLtulF9a/D6ir27/crx4Z4WCKpNIT7Ecz7lseyHf8Jjk5WRle6IChUsY78+aggO9o72w==
 
 "@neo4j/graphql@^3.14.2":
-  version "3.24.2"
-  resolved "https://registry.yarnpkg.com/@neo4j/graphql/-/graphql-3.24.2.tgz#ccb99b94ee18768f826874600b2908e9450dcfdf"
-  integrity sha512-bpwakW7ScGbDiCinnyZ9dkivvaw8XYZGlQxEZYGkdWY36rVDaIijw690mxAf1kIb1C6o5DbhR/jSNydgN+B9hw==
+  version "3.24.3"
+  resolved "https://registry.yarnpkg.com/@neo4j/graphql/-/graphql-3.24.3.tgz#7c1f6da3c893b1ac33fe0a69a1326ae89a5ff85f"
+  integrity sha512-Ym/+jK+Ly6CvJTi8qFHNVMOK5x486pL2NyDR/RNRJXEkbJNoPKHEW1rxSg/UihXIEPo6ZhSwuoZzqZf6WiKwwg==
   dependencies:
     "@apollo/subgraph" "^2.2.3"
     "@graphql-tools/merge" "^8.3.3"
@@ -4694,9 +4694,9 @@
   integrity sha512-Q5vtl1W5ue16D+nIaW8JWebSSraJVlK+EthKn7e7UcD4KWsaSJ8BqGPXNaPghgtcn/fhvrN17Tv8ksUsQpiplw==
 
 "@types/uuid@^9.0.0":
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.2.tgz#ede1d1b1e451548d44919dc226253e32a6952c4b"
-  integrity sha512-kNnC1GFBLuhImSnV7w4njQkUiJi0ZXUycu1rUaouPqiKlXkh77JKgdRnTAp1x5eBwcIwbtI+3otwzuIDEuDoxQ==
+  version "9.0.3"
+  resolved "https://registry.yarnpkg.com/@types/uuid/-/uuid-9.0.3.tgz#6cdd939b4316b4f81625de9f06028d848c4a1533"
+  integrity sha512-taHQQH/3ZyI3zP8M/puluDEIEvtQHVYcC6y3N8ijFtAd28+Ey/G4sg1u2gB01S8MwybLOKAp9/yCMu/uR5l3Ug==
 
 "@types/validator@^13.7.10":
   version "13.7.15"
