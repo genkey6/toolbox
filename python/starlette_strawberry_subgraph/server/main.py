@@ -6,7 +6,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.routing import Route
 from strawberry.asgi import GraphQL
 
-graphql_app = GraphQL(schema)
+graphql_app: GraphQL = GraphQL(schema)
 
 routes = [
     Route("/graphql", graphql_app),
