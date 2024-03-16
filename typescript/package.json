@@ -33,7 +33,7 @@
     "@emotion/styled": "11.11.0",
     "@mui/icons-material": "^5.11.0",
     "@mui/material": "^5.11.3",
-    "@neo4j/graphql": "^3.14.2",
+    "@neo4j/graphql": "^5.0.0",
     "@nestjs/apollo": "^12.0.0",
     "@nestjs/common": "^10.0.0",
     "@nestjs/core": "^10.0.0",
