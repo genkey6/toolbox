@@ -7,7 +7,7 @@ authors = ["genkey6 <genkey6@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10"
-starlette = "^0.31.0"
+starlette = "^0.37.0"
 gunicorn = "^21.0.0"
 uvicorn = "^0.23.0"
 python-multipart = "^0.0.7"
