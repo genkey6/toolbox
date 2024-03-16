@@ -12,14 +12,14 @@ jobs:
   ci-async-graphql-actix-web:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/format-lint-build-rust
         with:
           project-name: async-graphql-actix-web
   ci-async-graphql-subgraph:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/format-lint-build-rust
         with:
           project-name: async-graphql-subgraph
