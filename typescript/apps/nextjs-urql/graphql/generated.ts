@@ -2,50 +2,46 @@ import gql from 'graphql-tag';
 import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = {
-  [K in keyof T]: T[K];
-};
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]?: Maybe<T[SubKey]>;
-};
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
-  [SubKey in K]: Maybe<T[SubKey]>;
-};
+export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type MakeEmpty<T extends { [key: string]: unknown }, K extends keyof T> = { [_ in K]?: never };
+export type Incremental<T> = T | { [P in keyof T]?: P extends ' $fragmentName' | '__typename' ? T[P] : never };
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
-  ID: string;
-  String: string;
-  Boolean: boolean;
-  Int: number;
-  Float: number;
+  ID: { input: string; output: string; }
+  String: { input: string; output: string; }
+  Boolean: { input: boolean; output: boolean; }
+  Int: { input: number; output: number; }
+  Float: { input: number; output: number; }
 };
 
 export type AnimalDto = {
   __typename?: 'AnimalDto';
   family: FamilyDto;
-  id: Scalars['ID'];
-  name: Scalars['String'];
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
 };
 
 export type ClassisDto = {
   __typename?: 'ClassisDto';
-  id: Scalars['ID'];
-  name: Scalars['String'];
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
 };
 
 export type FamilyDto = {
   __typename?: 'FamilyDto';
-  id: Scalars['ID'];
-  name: Scalars['String'];
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
   order: OrderDto;
 };
 
 export type OrderDto = {
   __typename?: 'OrderDto';
   classis: ClassisDto;
-  id: Scalars['ID'];
-  name: Scalars['String'];
+  id: Scalars['ID']['output'];
+  name: Scalars['String']['output'];
 };
 
 export type Query = {
@@ -54,260 +50,249 @@ export type Query = {
   animals: Array<AnimalDto>;
 };
 
+
 export type QueryAnimalArgs = {
-  animalId: Scalars['ID'];
+  animalId: Scalars['ID']['input'];
 };
 
-export type AnimalsPage_AnimalFragment = {
-  __typename?: 'AnimalDto';
-  id: string;
-  name: string;
-};
+export type AnimalsPage_AnimalFragment = { __typename?: 'AnimalDto', id: string, name: string };
 
-export type AnimalsPageQueryVariables = Exact<{ [key: string]: never }>;
+export type AnimalsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
-export type AnimalsPageQuery = {
-  __typename?: 'Query';
-  animals: Array<{ __typename?: 'AnimalDto'; id: string; name: string }>;
-};
+
+export type AnimalsPageQuery = { __typename?: 'Query', animals: Array<{ __typename?: 'AnimalDto', id: string, name: string }> };
 
 export const AnimalsPage_AnimalFragmentDoc = gql`
-  fragment AnimalsPage_animal on AnimalDto {
-    id
-    name
-  }
-`;
-export const AnimalsPageDocument = gql`
-  query AnimalsPage {
-    animals {
-      ...AnimalsPage_animal
-    }
-  }
-  ${AnimalsPage_AnimalFragmentDoc}
-`;
-
-export function useAnimalsPageQuery(
-  options?: Omit<Urql.UseQueryArgs<AnimalsPageQueryVariables>, 'query'>
-) {
-  return Urql.useQuery<AnimalsPageQuery, AnimalsPageQueryVariables>({
-    query: AnimalsPageDocument,
-    ...options,
-  });
+    fragment AnimalsPage_animal on AnimalDto {
+  id
+  name
 }
+    `;
+export const AnimalsPageDocument = gql`
+    query AnimalsPage {
+  animals {
+    ...AnimalsPage_animal
+  }
+}
+    ${AnimalsPage_AnimalFragmentDoc}`;
+
+export function useAnimalsPageQuery(options?: Omit<Urql.UseQueryArgs<AnimalsPageQueryVariables>, 'query'>) {
+  return Urql.useQuery<AnimalsPageQuery, AnimalsPageQueryVariables>({ query: AnimalsPageDocument, ...options });
+};
 import { IntrospectionQuery } from 'graphql';
 export default {
-  __schema: {
-    queryType: {
-      name: 'Query',
+  "__schema": {
+    "queryType": {
+      "name": "Query"
     },
-    mutationType: null,
-    subscriptionType: null,
-    types: [
+    "mutationType": null,
+    "subscriptionType": null,
+    "types": [
       {
-        kind: 'OBJECT',
-        name: 'AnimalDto',
-        fields: [
+        "kind": "OBJECT",
+        "name": "AnimalDto",
+        "fields": [
           {
-            name: 'family',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'OBJECT',
-                name: 'FamilyDto',
-                ofType: null,
-              },
+            "name": "family",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "FamilyDto",
+                "ofType": null
+              }
             },
-            args: [],
+            "args": []
           },
           {
-            name: 'id',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'SCALAR',
-                name: 'Any',
-              },
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
             },
-            args: [],
+            "args": []
           },
           {
-            name: 'name',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'SCALAR',
-                name: 'Any',
-              },
+            "name": "name",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
             },
-            args: [],
-          },
+            "args": []
+          }
         ],
-        interfaces: [],
+        "interfaces": []
       },
       {
-        kind: 'OBJECT',
-        name: 'ClassisDto',
-        fields: [
+        "kind": "OBJECT",
+        "name": "ClassisDto",
+        "fields": [
           {
-            name: 'id',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'SCALAR',
-                name: 'Any',
-              },
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
             },
-            args: [],
+            "args": []
           },
           {
-            name: 'name',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'SCALAR',
-                name: 'Any',
-              },
+            "name": "name",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
             },
-            args: [],
-          },
+            "args": []
+          }
         ],
-        interfaces: [],
+        "interfaces": []
       },
       {
-        kind: 'OBJECT',
-        name: 'FamilyDto',
-        fields: [
+        "kind": "OBJECT",
+        "name": "FamilyDto",
+        "fields": [
           {
-            name: 'id',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'SCALAR',
-                name: 'Any',
-              },
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
             },
-            args: [],
+            "args": []
           },
           {
-            name: 'name',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'SCALAR',
-                name: 'Any',
-              },
+            "name": "name",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
             },
-            args: [],
+            "args": []
           },
           {
-            name: 'order',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'OBJECT',
-                name: 'OrderDto',
-                ofType: null,
-              },
+            "name": "order",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "OrderDto",
+                "ofType": null
+              }
             },
-            args: [],
-          },
+            "args": []
+          }
         ],
-        interfaces: [],
+        "interfaces": []
       },
       {
-        kind: 'OBJECT',
-        name: 'OrderDto',
-        fields: [
+        "kind": "OBJECT",
+        "name": "OrderDto",
+        "fields": [
           {
-            name: 'classis',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'OBJECT',
-                name: 'ClassisDto',
-                ofType: null,
-              },
+            "name": "classis",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "ClassisDto",
+                "ofType": null
+              }
             },
-            args: [],
+            "args": []
           },
           {
-            name: 'id',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'SCALAR',
-                name: 'Any',
-              },
+            "name": "id",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
             },
-            args: [],
+            "args": []
           },
           {
-            name: 'name',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'SCALAR',
-                name: 'Any',
-              },
+            "name": "name",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "SCALAR",
+                "name": "Any"
+              }
             },
-            args: [],
-          },
+            "args": []
+          }
         ],
-        interfaces: [],
+        "interfaces": []
       },
       {
-        kind: 'OBJECT',
-        name: 'Query',
-        fields: [
+        "kind": "OBJECT",
+        "name": "Query",
+        "fields": [
           {
-            name: 'animal',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'OBJECT',
-                name: 'AnimalDto',
-                ofType: null,
-              },
+            "name": "animal",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "OBJECT",
+                "name": "AnimalDto",
+                "ofType": null
+              }
             },
-            args: [
+            "args": [
               {
-                name: 'animalId',
-                type: {
-                  kind: 'NON_NULL',
-                  ofType: {
-                    kind: 'SCALAR',
-                    name: 'Any',
-                  },
-                },
-              },
-            ],
+                "name": "animalId",
+                "type": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "SCALAR",
+                    "name": "Any"
+                  }
+                }
+              }
+            ]
           },
           {
-            name: 'animals',
-            type: {
-              kind: 'NON_NULL',
-              ofType: {
-                kind: 'LIST',
-                ofType: {
-                  kind: 'NON_NULL',
-                  ofType: {
-                    kind: 'OBJECT',
-                    name: 'AnimalDto',
-                    ofType: null,
-                  },
-                },
-              },
+            "name": "animals",
+            "type": {
+              "kind": "NON_NULL",
+              "ofType": {
+                "kind": "LIST",
+                "ofType": {
+                  "kind": "NON_NULL",
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "AnimalDto",
+                    "ofType": null
+                  }
+                }
+              }
             },
-            args: [],
-          },
+            "args": []
+          }
         ],
-        interfaces: [],
+        "interfaces": []
       },
       {
-        kind: 'SCALAR',
-        name: 'Any',
-      },
+        "kind": "SCALAR",
+        "name": "Any"
+      }
     ],
-    directives: [],
-  },
+    "directives": []
+  }
 } as unknown as IntrospectionQuery;
