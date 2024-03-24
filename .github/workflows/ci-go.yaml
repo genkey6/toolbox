@@ -9,11 +9,11 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  lint:
+  lint-gqlgen-server:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: go
+        working-directory: go/gqlgen-server
     steps:
       - uses: actions/checkout@v4
       - name: Setup Go
