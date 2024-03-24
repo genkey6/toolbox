@@ -1,0 +1,49 @@
+type Animal {
+  name: String!
+  classis: Classis!
+}
+
+input AnimalInput {
+  name: String!
+  classis: ClassisInput!
+}
+
+enum Area {
+  TOHOKU
+  KANTO
+  KOSHINETSU
+  HOKURIKU
+  TOKAI
+  KINKI
+  CHUGOKU
+  SHIKOKU
+  KYUSYU
+}
+
+type Classis {
+  name: String!
+}
+
+input ClassisInput {
+  name: String!
+}
+
+type Mutation {
+  registerZoo(zoo: ZooInput!): [Zoo!]!
+}
+
+type Query {
+  zoos: [Zoo!]!
+}
+
+type Zoo {
+  name: String!
+  area: Area!
+  animals: [Animal!]!
+}
+
+input ZooInput {
+  name: String!
+  area: Area!
+  animals: [AnimalInput!]! = []
+}
