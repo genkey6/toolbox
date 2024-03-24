@@ -52,3 +52,8 @@ The project was generated and managed using [Nx](https://nx.dev).
 - starlette_strawberry_subgraph
   - An apollo subgraph implementation with strawberry + starlette supported apollo federation feature.
   - https://strawberry.rocks/docs/guides/federation
+
+
+### Go
+- gqlgen-server
+  - gqlgen - a GraphQL server library in Go (https://gqlgen.com/)
