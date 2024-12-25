@@ -1,14 +1,16 @@
 module gqlgenserver
 
-go 1.21.3
+go 1.22
+
+toolchain go1.23.4
 
 require (
 	github.com/99designs/gqlgen v0.17.49
-	github.com/vektah/gqlparser/v2 v2.5.16
+	github.com/vektah/gqlparser/v2 v2.5.21
 )
 
 require (
-	github.com/agnivade/levenshtein v1.1.1 // indirect
+	github.com/agnivade/levenshtein v1.2.0 // indirect
 	github.com/cpuguy83/go-md2man/v2 v2.0.4 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/gorilla/websocket v1.5.0 // indirect
