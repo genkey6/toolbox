@@ -19,7 +19,7 @@ python-dotenv = "^1.0.0"
 [tool.poetry.group.dev.dependencies]
 autopep8 = "^2.0.0"
 black = "^24.0.0"
-flake8 = "^6.0.0"
+flake8 = "^7.0.0"
 invoke = "^2.0.0"
 isort = "^5.10.1"
 mypy = "^1.0"
