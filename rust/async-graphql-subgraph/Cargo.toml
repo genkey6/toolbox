@@ -7,5 +7,5 @@ edition = "2021"
 
 [dependencies]
 actix-web = "4"
-async-graphql = "5.0"
+async-graphql = "7.0"
 async-graphql-actix-web = "5.0"
